@@ -70,17 +70,17 @@ const MarketResearch = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-b from-background to-muted/30">
+      <section className="pt-32 pb-16 gradient-hero">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white mb-6">
               <FileText size={16} />
               <span className="text-sm font-medium">AI-Powered Analysis</span>
             </div>
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
+            <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-6">
               Market Research
             </h1>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-white/80">
               Get comprehensive market intelligence powered by AI. Enter your company details 
               and receive a detailed analysis of your market landscape.
             </p>
@@ -100,7 +100,7 @@ const MarketResearch = () => {
 
               <form onSubmit={handleSubmit} className="space-y-6 mt-8">
                 <div className="space-y-2">
-                  <Label htmlFor="companyName" className="flex items-center gap-2">
+                  <Label htmlFor="companyName" className="flex items-center gap-2 text-foreground">
                     <Building2 size={16} className="text-primary" />
                     Company Name *
                   </Label>
@@ -110,12 +110,13 @@ const MarketResearch = () => {
                     value={formData.companyName}
                     onChange={handleChange}
                     placeholder="Enter company name"
+                    className="bg-background text-foreground border-border"
                     required
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="city" className="flex items-center gap-2">
+                  <Label htmlFor="city" className="flex items-center gap-2 text-foreground">
                     <MapPin size={16} className="text-primary" />
                     City *
                   </Label>
@@ -125,13 +126,14 @@ const MarketResearch = () => {
                     value={formData.city}
                     onChange={handleChange}
                     placeholder="Enter city"
+                    className="bg-background text-foreground border-border"
                     required
                   />
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="phone" className="flex items-center gap-2">
+                    <Label htmlFor="phone" className="flex items-center gap-2 text-foreground">
                       <Phone size={16} className="text-primary" />
                       Phone
                     </Label>
@@ -142,11 +144,12 @@ const MarketResearch = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="Enter phone number"
+                      className="bg-background text-foreground border-border"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="flex items-center gap-2">
+                    <Label htmlFor="email" className="flex items-center gap-2 text-foreground">
                       <Mail size={16} className="text-primary" />
                       Email
                     </Label>
@@ -157,12 +160,13 @@ const MarketResearch = () => {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="Enter email address"
+                      className="bg-background text-foreground border-border"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="lineOfBusiness" className="flex items-center gap-2">
+                  <Label htmlFor="lineOfBusiness" className="flex items-center gap-2 text-foreground">
                     <Briefcase size={16} className="text-primary" />
                     Line of Business *
                   </Label>
@@ -173,13 +177,14 @@ const MarketResearch = () => {
                     onChange={handleChange}
                     placeholder="Describe your line of business (e.g., Industrial automation, Building technologies, Environmental solutions...)"
                     rows={3}
+                    className="bg-background text-foreground border-border"
                     required
                   />
                 </div>
 
                 <Button
                   type="submit"
-                  className="w-full gradient-primary text-primary-foreground shadow-glow"
+                  className="w-full gradient-primary text-white shadow-glow"
                   disabled={isLoading}
                 >
                   {isLoading ? (
@@ -202,7 +207,7 @@ const MarketResearch = () => {
 
       {/* Report Section */}
       {report && (
-        <section className="py-16 bg-muted/30">
+        <section className="py-16 bg-muted">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <SectionHeading
@@ -210,7 +215,7 @@ const MarketResearch = () => {
                 subtitle="AI-generated analysis based on your company details"
               />
               <div className="mt-8 bg-card rounded-2xl p-8 shadow-card border border-border">
-                <div className="prose prose-lg dark:prose-invert max-w-none">
+                <div className="prose prose-lg max-w-none">
                   <div className="whitespace-pre-wrap text-foreground leading-relaxed">
                     {report}
                   </div>
