@@ -15,9 +15,9 @@ serve(async (req) => {
   try {
     const { companyName, city, phone, email, lineOfBusiness } = await req.json();
 
-    const PERPLEXITY_API_KEY = Deno.env.get('PERPLEXITY_API_KEY');
-    if (!PERPLEXITY_API_KEY) {
-      throw new Error('PERPLEXITY_API_KEY is not configured');
+    const GEMINI_API_KEY = Deno.env.get('GEMINI_API_KEY');
+    if (!GEMINI_API_KEY) {
+      throw new Error('GEMINI_API_KEY is not configured');
     }
 
     console.log('Generating market research for:', companyName, city, lineOfBusiness);
@@ -43,45 +43,38 @@ Please provide a comprehensive market research report covering:
 
 Format the report in a professional, easy-to-read manner with clear sections.`;
 
-    const response = await fetch('https://api.perplexity.ai/chat/completions', {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${PERPLEXITY_API_KEY}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'llama-3.1-sonar-large-128k-online',
-        messages: [
+        contents: [
           {
-            role: 'system',
-            content: 'You are an expert market research analyst with deep knowledge of industries, markets, and competitive analysis. Provide detailed, actionable market research reports.'
-          },
-          {
-            role: 'user',
-            content: prompt
+            parts: [
+              {
+                text: prompt
+              }
+            ]
           }
         ],
-        temperature: 0.2,
-        top_p: 0.9,
-        max_tokens: 4000,
-        return_images: false,
-        return_related_questions: false,
-        search_recency_filter: 'month',
-        frequency_penalty: 1,
-        presence_penalty: 0
+        generationConfig: {
+          temperature: 0.7,
+          maxOutputTokens: 4096,
+        }
       }),
     });
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error('Perplexity API error:', response.status, errorText);
-      throw new Error(`Perplexity API error: ${response.status}`);
+      console.error('Gemini API error:', response.status, errorText);
+      throw new Error(`Gemini API error: ${response.status}`);
     }
 
     const data = await response.json();
-    console.log('Perplexity response received successfully');
+    console.log('Gemini response received successfully');
     
-    const report = data.choices[0]?.message?.content || 'Unable to generate report';
+    const report = data.candidates?.[0]?.content?.parts?.[0]?.text || 'Unable to generate report';
 
     return new Response(JSON.stringify({ report }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
