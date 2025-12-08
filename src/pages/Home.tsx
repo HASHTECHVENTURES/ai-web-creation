@@ -140,8 +140,8 @@ const Home = () => {
       {/* About Mini Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1 max-w-sm mx-auto lg:mx-0">
+          <div className="grid lg:grid-cols-[auto_1fr] gap-8 items-center">
+            <div className="order-2 lg:order-1 w-72 mx-auto lg:mx-0">
               <div className="aspect-square rounded-3xl overflow-hidden shadow-card">
                 <img
                   src={sanjivBhaskar}
