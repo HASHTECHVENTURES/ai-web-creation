@@ -16,6 +16,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ServiceCard } from "@/components/cards/ServiceCard";
 import { ClientCard } from "@/components/cards/ClientCard";
 import sanjivBhaskar from "@/assets/sanjiv-bhaskar.png";
+import heroConsulting from "@/assets/hero-consulting.png";
 
 const services = [
   {
@@ -122,8 +123,8 @@ const Home = () => {
             <div className="relative animate-fade-in-right" style={{ animationDelay: "0.2s" }}>
               <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=600&fit=crop"
-                  alt="Strategic data visualization and market analytics"
+                  src={heroConsulting}
+                  alt="Sanjiv Bhaskar presenting data-driven strategy - Consulting meets Market Research"
                   className="w-full h-full object-cover"
                 />
               </div>
