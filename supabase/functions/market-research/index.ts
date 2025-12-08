@@ -15,20 +15,22 @@ serve(async (req) => {
   try {
     const { companyName, city, phone, email, lineOfBusiness } = await req.json();
 
-    const GEMINI_API_KEY = Deno.env.get('GEMINI_API_KEY');
-    if (!GEMINI_API_KEY) {
-      throw new Error('GEMINI_API_KEY is not configured');
+    const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY');
+    if (!LOVABLE_API_KEY) {
+      throw new Error('LOVABLE_API_KEY is not configured');
     }
 
     console.log('Generating market research for:', companyName, city, lineOfBusiness);
 
-    const prompt = `You are a market research analyst. Analyze and provide a detailed market research report for:
+    const systemPrompt = `You are an expert market research analyst with deep knowledge of industries, markets, and competitive analysis. Provide detailed, actionable market research reports formatted in a professional manner.`;
+
+    const userPrompt = `Analyze and provide a detailed market research report for:
 
 Company Name: ${companyName}
 Location: ${city}
 Line of Business: ${lineOfBusiness}
-Contact Email: ${email}
-Contact Phone: ${phone}
+Contact Email: ${email || 'Not provided'}
+Contact Phone: ${phone || 'Not provided'}
 
 Please provide a comprehensive market research report covering:
 
@@ -41,40 +43,47 @@ Please provide a comprehensive market research report covering:
 7. **Challenges**: Key challenges and risks to consider
 8. **Recommendations**: Strategic recommendations for market entry or growth
 
-Format the report in a professional, easy-to-read manner with clear sections.`;
+Format the report in a professional, easy-to-read manner with clear sections and bullet points where appropriate.`;
 
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`, {
-      method: 'POST',
+    const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        Authorization: `Bearer ${LOVABLE_API_KEY}`,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        contents: [
-          {
-            parts: [
-              {
-                text: prompt
-              }
-            ]
-          }
+        model: "google/gemini-2.5-flash",
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: userPrompt }
         ],
-        generationConfig: {
-          temperature: 0.7,
-          maxOutputTokens: 4096,
-        }
       }),
     });
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error('Gemini API error:', response.status, errorText);
-      throw new Error(`Gemini API error: ${response.status}`);
+      console.error('Lovable AI error:', response.status, errorText);
+      
+      if (response.status === 429) {
+        return new Response(JSON.stringify({ error: "Rate limit exceeded. Please try again in a moment." }), {
+          status: 429,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        });
+      }
+      if (response.status === 402) {
+        return new Response(JSON.stringify({ error: "AI credits depleted. Please add credits to your workspace." }), {
+          status: 402,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        });
+      }
+      
+      throw new Error(`AI API error: ${response.status}`);
     }
 
     const data = await response.json();
-    console.log('Gemini response received successfully');
+    console.log('Lovable AI response received successfully');
     
-    const report = data.candidates?.[0]?.content?.parts?.[0]?.text || 'Unable to generate report';
+    const report = data.choices?.[0]?.message?.content || 'Unable to generate report';
 
     return new Response(JSON.stringify({ report }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
