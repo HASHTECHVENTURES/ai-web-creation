@@ -141,8 +141,8 @@ const Home = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1">
-              <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-card">
+            <div className="order-2 lg:order-1 max-w-sm mx-auto lg:mx-0">
+              <div className="aspect-square rounded-3xl overflow-hidden shadow-card">
                 <img
                   src={sanjivBhaskar}
                   alt="Sanjiv Bhaskar - Founder of Markets-Simplified"
