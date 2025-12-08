@@ -13,6 +13,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import sanjivBhaskar from "@/assets/sanjiv-bhaskar.png";
 
 const timeline = [
   {
@@ -94,7 +95,7 @@ const About = () => {
             <div className="relative animate-fade-in-right" style={{ animationDelay: "0.2s" }}>
               <div className="aspect-[3/4] max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=667&fit=crop"
+                  src={sanjivBhaskar}
                   alt="Sanjiv Bhaskar"
                   className="w-full h-full object-cover"
                 />
