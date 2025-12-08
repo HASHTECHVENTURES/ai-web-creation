@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2, FileText, Building2, MapPin, Phone, Mail, Briefcase } from "lucide-react";
+import ReactMarkdown from "react-markdown";
 
 const MarketResearch = () => {
   const { toast } = useToast();
@@ -215,11 +216,23 @@ const MarketResearch = () => {
                 subtitle="AI-generated analysis based on your company details"
               />
               <div className="mt-8 bg-card rounded-2xl p-8 shadow-card border border-border">
-                <div className="prose prose-lg max-w-none">
-                  <div className="whitespace-pre-wrap text-foreground leading-relaxed">
+                <article className="prose prose-lg prose-headings:text-foreground prose-headings:font-display prose-p:text-foreground prose-strong:text-foreground prose-li:text-foreground prose-ul:text-foreground max-w-none">
+                  <ReactMarkdown
+                    components={{
+                      h1: ({ children }) => <h1 className="text-3xl font-bold text-foreground mb-4 mt-6">{children}</h1>,
+                      h2: ({ children }) => <h2 className="text-2xl font-bold text-foreground mb-3 mt-6 border-b border-border pb-2">{children}</h2>,
+                      h3: ({ children }) => <h3 className="text-xl font-semibold text-foreground mb-2 mt-4">{children}</h3>,
+                      p: ({ children }) => <p className="text-foreground mb-4 leading-relaxed">{children}</p>,
+                      strong: ({ children }) => <strong className="font-semibold text-foreground">{children}</strong>,
+                      ul: ({ children }) => <ul className="list-disc list-inside mb-4 space-y-2">{children}</ul>,
+                      ol: ({ children }) => <ol className="list-decimal list-inside mb-4 space-y-2">{children}</ol>,
+                      li: ({ children }) => <li className="text-foreground">{children}</li>,
+                      hr: () => <hr className="my-6 border-border" />,
+                    }}
+                  >
                     {report}
-                  </div>
-                </div>
+                  </ReactMarkdown>
+                </article>
               </div>
             </div>
           </div>
