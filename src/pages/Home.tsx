@@ -15,6 +15,7 @@ import { Layout } from "@/components/layout/Layout";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ServiceCard } from "@/components/cards/ServiceCard";
 import { ClientCard } from "@/components/cards/ClientCard";
+import sanjivBhaskar from "@/assets/sanjiv-bhaskar.png";
 
 const services = [
   {
@@ -143,7 +144,7 @@ const Home = () => {
             <div className="order-2 lg:order-1">
               <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-card">
                 <img
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&h=625&fit=crop"
+                  src={sanjivBhaskar}
                   alt="Sanjiv Bhaskar - Founder of Markets-Simplified"
                   className="w-full h-full object-cover"
                 />
