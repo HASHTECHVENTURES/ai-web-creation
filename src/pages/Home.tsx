@@ -181,15 +181,15 @@ const Home = () => {
             centered
           />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-            {services.map((service, index) => (
-              <ServiceCard
-                key={service.title}
-                icon={service.icon}
-                title={service.title}
-                description={service.description}
-                featured={index === 0}
-              />
+          <div className="flex flex-wrap justify-center gap-6 mt-12">
+            {services.map((service) => (
+              <div key={service.title} className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+                <ServiceCard
+                  icon={service.icon}
+                  title={service.title}
+                  description={service.description}
+                />
+              </div>
             ))}
           </div>
 
