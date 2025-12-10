@@ -15,7 +15,7 @@ import { Layout } from "@/components/layout/Layout";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ServiceCard } from "@/components/cards/ServiceCard";
 import { ClientCard } from "@/components/cards/ClientCard";
-import heroConsulting from "@/assets/hero-consulting.png";
+import heroVennDiagram from "@/assets/hero-venn-diagram.png";
 
 const services = [
   {
@@ -122,7 +122,7 @@ const Home = () => {
             <div className="relative animate-fade-in-right" style={{ animationDelay: "0.2s" }}>
               <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src={heroConsulting}
+                  src={heroVennDiagram}
                   alt="Sanjiv Bhaskar presenting data-driven strategy - Consulting meets Market Research"
                   className="w-full h-full object-cover"
                 />
