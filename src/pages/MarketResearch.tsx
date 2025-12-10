@@ -9,6 +9,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2, FileText, Building2, MapPin, Phone, Mail, Briefcase } from "lucide-react";
 import ReactMarkdown from "react-markdown";
+import heroMarketResearch from "@/assets/hero-market-research.png";
 
 const MarketResearch = () => {
   const { toast } = useToast();
@@ -71,17 +72,22 @@ const MarketResearch = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="pt-32 pb-16 gradient-hero">
-        <div className="container mx-auto px-4">
+      <section className="pt-32 pb-16 relative overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroMarketResearch})` }}
+        />
+        <div className="absolute inset-0 bg-primary/80" />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 text-white mb-6">
               <FileText size={16} />
               <span className="text-sm font-medium">AI-Powered Analysis</span>
             </div>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-6">
               Market Research
             </h1>
-            <p className="text-lg text-white/80">
+            <p className="text-lg text-white/90">
               Get comprehensive market intelligence powered by AI. Enter your company details 
               and receive a detailed analysis of your market landscape.
             </p>
