@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Linkedin, Mail, MapPin } from "lucide-react";
+import companyLogo from "@/assets/company-logo.png";
 
 const services = [
   "Market Intelligence",
@@ -24,8 +25,12 @@ export const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-display font-bold text-xl">M</span>
+              <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center p-1.5">
+                <img 
+                  src={companyLogo} 
+                  alt="Markets-Simplified Logo" 
+                  className="h-full w-auto"
+                />
               </div>
               <span className="font-display font-bold text-xl">
                 Markets-<span className="text-secondary">Simplified</span>
