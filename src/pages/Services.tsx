@@ -11,6 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import heroServices from "@/assets/hero-services.png";
 
 const services = [
   {
@@ -94,20 +95,22 @@ const Services = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative py-20 gradient-hero overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/3 right-1/4 w-72 h-72 rounded-full bg-secondary blur-3xl" />
-        </div>
+      <section className="relative py-20 overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroServices})` }}
+        />
+        <div className="absolute inset-0 bg-primary/80" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/20 text-secondary text-sm font-semibold mb-6 animate-fade-in">
+            <span className="inline-block px-4 py-2 rounded-full bg-white/20 text-white text-sm font-semibold mb-6 animate-fade-in">
               Services
             </span>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6 animate-fade-in text-center">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 animate-fade-in text-center">
               Strategic Consulting Services
             </h1>
-            <p className="text-xl text-primary-foreground/80 leading-relaxed max-w-2xl mx-auto animate-fade-in text-center">
+            <p className="text-xl text-white/90 leading-relaxed max-w-2xl mx-auto animate-fade-in text-center">
               Comprehensive market intelligence and strategic consulting services 
               tailored to your unique business challenges and opportunities.
             </p>

@@ -5,25 +5,28 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import heroContact from "@/assets/hero-contact.png";
 
 const Contact = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative py-20 gradient-hero overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/3 left-1/3 w-72 h-72 rounded-full bg-secondary blur-3xl" />
-        </div>
+      <section className="relative py-20 overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroContact})` }}
+        />
+        <div className="absolute inset-0 bg-primary/80" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/20 text-secondary text-sm font-semibold mb-6 animate-fade-in">
+            <span className="inline-block px-4 py-2 rounded-full bg-white/20 text-white text-sm font-semibold mb-6 animate-fade-in">
               Contact
             </span>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6 animate-fade-in text-center">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 animate-fade-in text-center">
               Get in Touch
             </h1>
-            <p className="text-xl text-primary-foreground/80 leading-relaxed max-w-2xl mx-auto animate-fade-in text-center">
+            <p className="text-xl text-white/90 leading-relaxed max-w-2xl mx-auto animate-fade-in text-center">
               Ready to simplify your strategic decisions? Let's discuss how I can 
               help you achieve your business goals.
             </p>
