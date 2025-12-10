@@ -20,7 +20,7 @@ export const ServiceCard = ({
       className={`group relative p-6 md:p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1 ${
         featured
           ? "gradient-primary text-primary-foreground shadow-glow"
-          : "bg-card border border-border shadow-card hover:shadow-glow"
+          : "bg-gradient-to-br from-slate-50 via-blue-50/50 to-indigo-50/30 dark:from-slate-900 dark:via-blue-950/30 dark:to-indigo-950/20 border border-border/50 shadow-card hover:shadow-glow"
       }`}
     >
       {/* Icon */}
