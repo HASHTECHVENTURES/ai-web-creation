@@ -1,11 +1,22 @@
 import { LucideIcon } from "lucide-react";
 
+type ColorVariant = "blue" | "teal" | "purple" | "rose" | "amber";
+
+const colorVariants: Record<ColorVariant, string> = {
+  blue: "bg-gradient-to-br from-blue-50 via-sky-50/50 to-indigo-50/30 dark:from-blue-950/40 dark:via-sky-950/30 dark:to-indigo-950/20 border-blue-100/50 dark:border-blue-800/30",
+  teal: "bg-gradient-to-br from-teal-50 via-emerald-50/50 to-cyan-50/30 dark:from-teal-950/40 dark:via-emerald-950/30 dark:to-cyan-950/20 border-teal-100/50 dark:border-teal-800/30",
+  purple: "bg-gradient-to-br from-purple-50 via-violet-50/50 to-fuchsia-50/30 dark:from-purple-950/40 dark:via-violet-950/30 dark:to-fuchsia-950/20 border-purple-100/50 dark:border-purple-800/30",
+  rose: "bg-gradient-to-br from-rose-50 via-pink-50/50 to-red-50/30 dark:from-rose-950/40 dark:via-pink-950/30 dark:to-red-950/20 border-rose-100/50 dark:border-rose-800/30",
+  amber: "bg-gradient-to-br from-amber-50 via-yellow-50/50 to-orange-50/30 dark:from-amber-950/40 dark:via-yellow-950/30 dark:to-orange-950/20 border-amber-100/50 dark:border-amber-800/30",
+};
+
 interface ServiceCardProps {
   icon: LucideIcon;
   title: string;
   description: string;
   deliverables?: string[];
   featured?: boolean;
+  colorVariant?: ColorVariant;
 }
 
 export const ServiceCard = ({
@@ -14,13 +25,14 @@ export const ServiceCard = ({
   description,
   deliverables,
   featured = false,
+  colorVariant = "blue",
 }: ServiceCardProps) => {
   return (
     <div
       className={`group relative p-6 md:p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1 ${
         featured
           ? "gradient-primary text-primary-foreground shadow-glow"
-          : "bg-gradient-to-br from-slate-50 via-blue-50/50 to-indigo-50/30 dark:from-slate-900 dark:via-blue-950/30 dark:to-indigo-950/20 border border-border/50 shadow-card hover:shadow-glow"
+          : `${colorVariants[colorVariant]} border shadow-card hover:shadow-glow`
       }`}
     >
       {/* Icon */}
