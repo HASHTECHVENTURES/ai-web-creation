@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import sanjivBhaskar from "@/assets/sanjiv-bhaskar.png";
+import sanjivSpeaking from "@/assets/sanjiv-speaking.png";
 
 const timeline = [
   {
@@ -108,28 +109,40 @@ const About = () => {
       {/* Bio Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <SectionHeading
               badge="Background"
               title="Professional Journey"
               subtitle="A career dedicated to market intelligence excellence"
             />
 
-            <div className="mt-12 prose prose-lg max-w-none">
-              <p className="text-muted-foreground leading-relaxed">
-                Throughout my career, I have partnered with Fortune 500 companies, 
-                private equity firms, and emerging businesses to deliver strategic 
-                insights that inform critical business decisions. My expertise spans 
-                market sizing, competitive intelligence, M&A due diligence, and 
-                go-to-market strategy development.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mt-4">
-                As Vice President at Frost & Sullivan, I led numerous high-impact 
-                consulting engagements that helped clients identify growth opportunities, 
-                validate market assumptions, and develop winning strategies. This 
-                experience has given me deep industry knowledge and a proven track 
-                record of delivering results.
-              </p>
+            <div className="mt-12 grid lg:grid-cols-2 gap-12 items-center">
+              <div className="prose prose-lg max-w-none">
+                <p className="text-muted-foreground leading-relaxed">
+                  Throughout my career, I have partnered with Fortune 500 companies, 
+                  private equity firms, and emerging businesses to deliver strategic 
+                  insights that inform critical business decisions. My expertise spans 
+                  market sizing, competitive intelligence, M&A due diligence, and 
+                  go-to-market strategy development.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mt-4">
+                  As Vice President at Frost & Sullivan, I led numerous high-impact 
+                  consulting engagements that helped clients identify growth opportunities, 
+                  validate market assumptions, and develop winning strategies. This 
+                  experience has given me deep industry knowledge and a proven track 
+                  record of delivering results.
+                </p>
+              </div>
+              
+              <div className="relative animate-fade-in">
+                <div className="aspect-square max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl">
+                  <img
+                    src={sanjivSpeaking}
+                    alt="Sanjiv Bhaskar speaking at conference"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
