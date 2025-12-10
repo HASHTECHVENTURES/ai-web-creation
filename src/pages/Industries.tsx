@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Building2, Zap, Leaf, Wrench, HardHat, ArrowRight } from "lucide-react";
+import { Building2, Zap, Leaf, Wrench, HardHat, ArrowRight, Clock, Target, Users, Cog } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -82,29 +82,77 @@ const Industries = () => {
         </div>
       </section>
 
-      {/* Why Industry Focus */}
+      {/* Why Industry Focus - Infographic Style */}
       <section className="py-20 bg-muted/50">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <SectionHeading badge="Approach" title="Why Industry Focus Matters" subtitle="Deep domain expertise leads to better insights and recommendations" />
-              <div className="mt-8 space-y-4">
-                {["Faster time to insight with existing knowledge base", "Understanding of industry-specific dynamics and nuances", "Established network of industry contacts and sources", "Proven methodologies tailored to each sector"].map((point, index) => <div key={index} className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full gradient-primary flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <span className="text-primary-foreground text-xs font-bold">
-                        {index + 1}
-                      </span>
-                    </div>
-                    <p className="text-muted-foreground">{point}</p>
-                  </div>)}
+          <div className="text-center mb-16">
+            <SectionHeading 
+              badge="Approach" 
+              title="Why Industry Focus Matters" 
+              subtitle="Deep domain expertise leads to better insights and recommendations" 
+              centered 
+            />
+          </div>
+          
+          {/* Infographic Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: Clock,
+                number: "01",
+                title: "Faster Insights",
+                description: "Faster time to insight with existing knowledge base",
+                gradient: "from-blue-100 via-blue-50 to-sky-50 dark:from-blue-950 dark:via-blue-900/50 dark:to-sky-950/30"
+              },
+              {
+                icon: Target,
+                number: "02",
+                title: "Deep Understanding",
+                description: "Understanding of industry-specific dynamics and nuances",
+                gradient: "from-teal-100 via-teal-50 to-emerald-50 dark:from-teal-950 dark:via-teal-900/50 dark:to-emerald-950/30"
+              },
+              {
+                icon: Users,
+                number: "03",
+                title: "Strong Network",
+                description: "Established network of industry contacts and sources",
+                gradient: "from-purple-100 via-purple-50 to-violet-50 dark:from-purple-950 dark:via-purple-900/50 dark:to-violet-950/30"
+              },
+              {
+                icon: Cog,
+                number: "04",
+                title: "Proven Methods",
+                description: "Proven methodologies tailored to each sector",
+                gradient: "from-amber-100 via-amber-50 to-orange-50 dark:from-amber-950 dark:via-amber-900/50 dark:to-orange-950/30"
+              }
+            ].map((item, index) => (
+              <div 
+                key={index}
+                className={`relative p-8 rounded-3xl bg-gradient-to-br ${item.gradient} border border-border/50 shadow-card hover:shadow-glow transition-all duration-300 hover:-translate-y-2 animate-fade-in group`}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {/* Number Badge */}
+                <div className="absolute -top-3 -right-3 w-12 h-12 rounded-full gradient-primary flex items-center justify-center shadow-lg">
+                  <span className="text-primary-foreground font-bold text-sm">{item.number}</span>
+                </div>
+                
+                {/* Icon */}
+                <div className="w-16 h-16 rounded-2xl bg-background/80 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <item.icon className="w-8 h-8 text-primary" />
+                </div>
+                
+                {/* Content */}
+                <h3 className="font-display text-xl font-bold text-foreground mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {item.description}
+                </p>
+                
+                {/* Decorative Line */}
+                <div className="absolute bottom-0 left-8 right-8 h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent rounded-full" />
               </div>
-            </div>
-
-            <div className="relative">
-              <div className="aspect-square rounded-3xl overflow-hidden shadow-card">
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=600&fit=crop" alt="Industrial technology and automation" className="w-full h-full object-cover" />
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
