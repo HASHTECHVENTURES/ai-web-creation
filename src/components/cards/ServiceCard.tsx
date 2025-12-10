@@ -2,6 +2,14 @@ import { LucideIcon } from "lucide-react";
 
 type ColorVariant = "blue" | "teal" | "purple" | "rose" | "amber";
 
+const abstractPatterns: Record<ColorVariant, string> = {
+  blue: "radial-gradient(circle at 30% 30%, rgba(166, 193, 238, 0.3) 0%, rgba(251, 194, 235, 0.25) 100%)",
+  teal: "radial-gradient(circle at 30% 30%, rgba(137, 247, 254, 0.3) 0%, rgba(102, 166, 255, 0.25) 100%)",
+  purple: "radial-gradient(circle at 30% 30%, rgba(251, 194, 235, 0.3) 0%, rgba(166, 193, 238, 0.25) 100%)",
+  rose: "radial-gradient(circle at 30% 30%, rgba(253, 203, 241, 0.3) 0%, rgba(230, 222, 233, 0.25) 100%)",
+  amber: "radial-gradient(circle at 30% 30%, rgba(246, 211, 101, 0.3) 0%, rgba(253, 160, 133, 0.25) 100%)",
+};
+
 const colorVariants: Record<ColorVariant, string> = {
   blue: "bg-gradient-to-br from-blue-50 via-sky-50/50 to-indigo-50/30 dark:from-blue-950/40 dark:via-sky-950/30 dark:to-indigo-950/20 border-blue-100/50 dark:border-blue-800/30",
   teal: "bg-gradient-to-br from-teal-50 via-emerald-50/50 to-cyan-50/30 dark:from-teal-950/40 dark:via-emerald-950/30 dark:to-cyan-950/20 border-teal-100/50 dark:border-teal-800/30",
@@ -29,63 +37,74 @@ export const ServiceCard = ({
 }: ServiceCardProps) => {
   return (
     <div
-      className={`group relative p-6 md:p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1 ${
+      className={`group relative h-full flex flex-col p-6 md:p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden ${
         featured
           ? "gradient-primary text-primary-foreground shadow-glow"
-          : `${colorVariants[colorVariant]} border shadow-card hover:shadow-glow`
+          : `border border-white/20 shadow-card hover:shadow-glow bg-white/95`
       }`}
+      style={
+        !featured
+          ? {
+              background: `${abstractPatterns[colorVariant]}, rgba(255, 255, 255, 0.9)`,
+            }
+          : undefined
+      }
     >
-      {/* Icon */}
-      <div
-        className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 ${
-          featured
-            ? "bg-primary-foreground/20"
-            : "gradient-primary"
-        }`}
-      >
-        <Icon size={28} className={featured ? "text-primary-foreground" : "text-primary-foreground"} />
+      
+      {/* Content */}
+      <div className="relative z-10 flex flex-col h-full">
+        {/* Icon */}
+        <div
+          className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 flex-shrink-0 ${
+            featured
+              ? "bg-primary-foreground/20"
+              : "gradient-primary"
+          }`}
+        >
+          <Icon size={28} className={featured ? "text-primary-foreground" : "text-primary-foreground"} />
+        </div>
+
+        {/* Content */}
+        <h3
+          className={`font-display text-xl font-bold mb-3 ${
+            featured ? "text-primary-foreground" : "text-foreground"
+          }`}
+        >
+          {title}
+        </h3>
+        <p
+          className={`text-sm leading-relaxed mb-4 flex-grow ${
+            featured ? "text-primary-foreground/80" : "text-muted-foreground"
+          }`}
+        >
+          {description}
+        </p>
+
+        {/* Deliverables */}
+        {deliverables && deliverables.length > 0 && (
+          <ul className="space-y-2">
+            {deliverables.map((item, index) => (
+              <li
+                key={index}
+                className={`flex items-center gap-2 text-sm ${
+                  featured ? "text-primary-foreground/80" : "text-muted-foreground"
+                }`}
+              >
+                <span
+                  className={`w-1.5 h-1.5 rounded-full ${
+                    featured ? "bg-secondary" : "bg-primary"
+                  }`}
+                />
+                {item}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
 
-      {/* Content */}
-      <h3
-        className={`font-display text-xl font-bold mb-3 ${
-          featured ? "text-primary-foreground" : "text-foreground"
-        }`}
-      >
-        {title}
-      </h3>
-      <p
-        className={`text-sm leading-relaxed mb-4 ${
-          featured ? "text-primary-foreground/80" : "text-muted-foreground"
-        }`}
-      >
-        {description}
-      </p>
-
-      {/* Deliverables */}
-      {deliverables && deliverables.length > 0 && (
-        <ul className="space-y-2">
-          {deliverables.map((item, index) => (
-            <li
-              key={index}
-              className={`flex items-center gap-2 text-sm ${
-                featured ? "text-primary-foreground/80" : "text-muted-foreground"
-              }`}
-            >
-              <span
-                className={`w-1.5 h-1.5 rounded-full ${
-                  featured ? "bg-secondary" : "bg-primary"
-                }`}
-              />
-              {item}
-            </li>
-          ))}
-        </ul>
-      )}
-
-      {/* Decorative gradient */}
+      {/* Decorative gradient on hover */}
       {!featured && (
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-0" />
       )}
     </div>
   );

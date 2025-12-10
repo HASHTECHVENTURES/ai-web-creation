@@ -42,37 +42,41 @@ const Industries = () => {
           <div className="absolute bottom-1/3 left-1/4 w-72 h-72 rounded-full bg-accent blur-3xl" />
         </div>
 
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <span className="inline-block px-4 py-2 rounded-full bg-primary/20 text-secondary text-sm font-semibold mb-6 animate-fade-in">
-            Industries
-          </span>
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6 animate-fade-in">Proven Excellence</h1>
-          <p className="text-xl text-primary-foreground/80 leading-relaxed max-w-2xl mx-auto animate-fade-in">
-            Deep domain knowledge across key industrial sectors, built through 
-            years of research and consulting experience.
-          </p>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <span className="inline-block px-4 py-2 rounded-full bg-primary/20 text-secondary text-sm font-semibold mb-6 animate-fade-in">
+              Industries
+            </span>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6 animate-fade-in text-center">
+              Proven Excellence
+            </h1>
+            <p className="text-xl text-primary-foreground/80 leading-relaxed max-w-2xl mx-auto animate-fade-in text-center">
+              Deep domain knowledge across key industrial sectors, built through 
+              years of research and consulting experience.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Industries Grid */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8">
-            {industries.map((industry, index) => <div key={industry.title} className={`group p-8 rounded-3xl border transition-all duration-300 hover:-translate-y-1 animate-fade-in ${industry.featured ? "bg-card border-border shadow-card hover:shadow-glow" : "bg-muted/30 border-border/50 opacity-90"}`} style={{
+          <div className="grid md:grid-cols-2 gap-6">
+            {industries.map((industry, index) => <div key={industry.title} className={`group h-full flex flex-col p-8 rounded-3xl border transition-all duration-300 hover:-translate-y-1 animate-fade-in ${industry.featured ? "bg-card border-border shadow-card hover:shadow-glow" : "bg-muted/30 border-border/50 opacity-90"}`} style={{
             animationDelay: `${index * 0.1}s`
           }}>
-                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 ${industry.featured ? "gradient-primary" : "bg-muted"}`}>
+                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 flex-shrink-0 ${industry.featured ? "gradient-primary" : "bg-muted"}`}>
                   <industry.icon size={32} className={industry.featured ? "text-primary-foreground" : "text-muted-foreground"} />
                 </div>
 
                 <h2 className="font-display text-2xl font-bold text-foreground mb-4">
                   {industry.title}
                 </h2>
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
                   {industry.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mt-auto">
                   {industry.highlights.map(highlight => <span key={highlight} className={`px-3 py-1 rounded-full text-xs font-medium ${industry.featured ? "bg-primary/10 text-primary" : "bg-muted text-muted-foreground"}`}>
                       {highlight}
                     </span>)}
@@ -128,16 +132,16 @@ const Industries = () => {
             ].map((item, index) => (
               <div 
                 key={index}
-                className={`relative p-8 rounded-3xl bg-gradient-to-br ${item.gradient} border border-border/50 shadow-card hover:shadow-glow transition-all duration-300 hover:-translate-y-2 animate-fade-in group`}
+                className={`relative h-full flex flex-col p-8 rounded-3xl bg-gradient-to-br ${item.gradient} border border-border/50 shadow-card hover:shadow-glow transition-all duration-300 hover:-translate-y-2 animate-fade-in group`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Number Badge */}
-                <div className="absolute -top-3 -right-3 w-12 h-12 rounded-full gradient-primary flex items-center justify-center shadow-lg">
+                <div className="absolute -top-3 -right-3 w-12 h-12 rounded-full gradient-primary flex items-center justify-center shadow-lg flex-shrink-0">
                   <span className="text-primary-foreground font-bold text-sm">{item.number}</span>
                 </div>
                 
                 {/* Icon */}
-                <div className="w-16 h-16 rounded-2xl bg-background/80 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 rounded-2xl bg-background/80 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
                   <item.icon className="w-8 h-8 text-primary" />
                 </div>
                 
@@ -145,7 +149,7 @@ const Industries = () => {
                 <h3 className="font-display text-xl font-bold text-foreground mb-3">
                   {item.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-muted-foreground text-sm leading-relaxed flex-grow">
                   {item.description}
                 </p>
                 

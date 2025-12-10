@@ -120,7 +120,7 @@ const Home = () => {
             </div>
 
             <div className="relative animate-fade-in-right" style={{ animationDelay: "0.2s" }}>
-              <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
+              <div className="w-full max-w-lg mx-auto aspect-square rounded-3xl overflow-hidden shadow-2xl">
                 <img
                   src={heroVennDiagram}
                   alt="Sanjiv Bhaskar presenting data-driven strategy - Consulting meets Market Research"
@@ -148,16 +148,15 @@ const Home = () => {
             centered
           />
 
-          <div className="flex flex-wrap justify-center gap-5 mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
             {services.map((service) => (
-              <div key={service.title} className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-                <ServiceCard
-                  icon={service.icon}
-                  title={service.title}
-                  description={service.description}
-                  colorVariant={service.colorVariant}
-                />
-              </div>
+              <ServiceCard
+                key={service.title}
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                colorVariant={service.colorVariant}
+              />
             ))}
           </div>
 
@@ -177,7 +176,7 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <SectionHeading
             badge="Clients"
-            title="Empowering Business Leaders, Visionaries, Founders, and Forward Thinkers"
+            title={<>Empowering Business Leaders, Visionaries,<br />Founders, and Forward Thinkers</>}
             subtitle="Partnering with organizations across industries to deliver actionable insights"
             centered
           />

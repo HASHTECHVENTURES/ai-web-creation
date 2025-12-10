@@ -15,17 +15,19 @@ const Contact = () => {
           <div className="absolute top-1/3 left-1/3 w-72 h-72 rounded-full bg-secondary blur-3xl" />
         </div>
 
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <span className="inline-block px-4 py-2 rounded-full bg-primary/20 text-secondary text-sm font-semibold mb-6 animate-fade-in">
-            Contact
-          </span>
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6 animate-fade-in">
-            Get in Touch
-          </h1>
-          <p className="text-xl text-primary-foreground/80 leading-relaxed max-w-2xl mx-auto animate-fade-in">
-            Ready to simplify your strategic decisions? Let's discuss how I can 
-            help you achieve your business goals.
-          </p>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <span className="inline-block px-4 py-2 rounded-full bg-primary/20 text-secondary text-sm font-semibold mb-6 animate-fade-in">
+              Contact
+            </span>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6 animate-fade-in text-center">
+              Get in Touch
+            </h1>
+            <p className="text-xl text-primary-foreground/80 leading-relaxed max-w-2xl mx-auto animate-fade-in text-center">
+              Ready to simplify your strategic decisions? Let's discuss how I can 
+              help you achieve your business goals.
+            </p>
+          </div>
         </div>
       </section>
 
