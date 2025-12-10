@@ -212,7 +212,7 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <SectionHeading
             badge="Clients"
-            title="Who I Work With"
+            title="Empowering Business Leaders, Visionaries, Founders, and Forward Thinkers"
             subtitle="Partnering with organizations across industries to deliver actionable insights"
             centered
           />
