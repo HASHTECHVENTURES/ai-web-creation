@@ -178,7 +178,7 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <SectionHeading
             badge="Services"
-            title="How I Can Help You"
+            title="Clarity for Today. Strategy for Tomorrow"
             subtitle="Comprehensive strategic consulting services tailored to your business needs"
             centered
           />
