@@ -60,22 +60,22 @@ const ThoughtLeadership = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-12 md:py-16 lg:py-20 overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroThoughtLeadership})` }}
         />
         <div className="absolute inset-0 bg-primary/80" />
 
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-block px-4 py-2 rounded-full bg-white/20 text-white text-sm font-semibold mb-6 animate-fade-in">
+            <span className="inline-block px-4 py-2 rounded-full bg-white/20 text-white text-xs md:text-sm font-semibold mb-4 md:mb-6 animate-scale-in">
               Thought Leadership
             </span>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 animate-fade-in text-center">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 md:mb-6 animate-fade-in">
               Insights & Perspectives
             </h1>
-            <p className="text-xl text-white/90 leading-relaxed max-w-2xl mx-auto animate-fade-in text-center">
+            <p className="text-base md:text-lg lg:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto animate-fade-in">
               Strategic insights, frameworks, and perspectives on market intelligence, 
               business strategy, and growth opportunities.
             </p>
@@ -84,8 +84,8 @@ const ThoughtLeadership = () => {
       </section>
 
       {/* Featured Articles */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
+      <section className="py-12 md:py-16 lg:py-20 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Articles"
             title="Featured Insights"
@@ -93,12 +93,12 @@ const ThoughtLeadership = () => {
             centered
           />
 
-          <div className="grid md:grid-cols-2 gap-8 mt-12">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-8 md:mt-12">
             {articles.map((article, index) => (
               <div
                 key={article.title}
                 className="animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                style={{ animationDelay: `${index * 0.1}s`, opacity: 0 }}
               >
                 <ArticleCard
                   title={article.title}
@@ -113,8 +113,8 @@ const ThoughtLeadership = () => {
       </section>
 
       {/* Frameworks Section */}
-      <section className="py-20 bg-muted/50">
-        <div className="container mx-auto px-4">
+      <section className="py-12 md:py-16 lg:py-20 bg-muted/50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Frameworks"
             title="Strategic Frameworks"
@@ -122,24 +122,24 @@ const ThoughtLeadership = () => {
             centered
           />
 
-          <div className="grid md:grid-cols-2 gap-6 mt-12 max-w-4xl mx-auto">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-12 max-w-4xl mx-auto">
             {frameworks.map((framework, index) => (
               <div
                 key={framework.title}
-                className="group p-6 rounded-2xl bg-card border border-border shadow-soft hover:shadow-card transition-all duration-300 animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="group p-5 md:p-6 rounded-xl md:rounded-2xl bg-card border border-border shadow-card hover:shadow-glow hover:-translate-y-1 transition-all duration-300 animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s`, opacity: 0 }}
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center flex-shrink-0">
-                    <span className="text-primary-foreground font-display font-bold">
+                <div className="flex items-start gap-3 md:gap-4">
+                  <div className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+                    <span className="text-primary-foreground font-display font-bold text-sm md:text-base">
                       {index + 1}
                     </span>
                   </div>
                   <div>
-                    <h3 className="font-display text-lg font-bold text-foreground mb-2">
+                    <h3 className="font-display text-base md:text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
                       {framework.title}
                     </h3>
-                    <p className="text-muted-foreground text-sm">
+                    <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
                       {framework.description}
                     </p>
                   </div>
@@ -151,31 +151,32 @@ const ThoughtLeadership = () => {
       </section>
 
       {/* Speaking & Workshops */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <div className="aspect-video rounded-3xl overflow-hidden shadow-card">
+      <section className="py-12 md:py-16 lg:py-20 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="relative animate-fade-in" style={{ animationDelay: "0.1s", opacity: 0 }}>
+              <div className="aspect-video rounded-2xl md:rounded-3xl overflow-hidden shadow-card hover:shadow-glow transition-shadow duration-300">
                 <img
                   src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop"
                   alt="Conference speaking and workshops"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  loading="lazy"
                 />
               </div>
             </div>
 
-            <div>
+            <div className="animate-fade-in" style={{ animationDelay: "0.2s", opacity: 0 }}>
               <SectionHeading
                 badge="Speaking"
                 title="Workshops & Presentations"
                 subtitle="Sharing insights through executive briefings and industry events"
               />
-              <p className="text-muted-foreground leading-relaxed mt-6 mb-6">
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed mt-4 md:mt-6 mb-4 md:mb-6">
                 I regularly share insights through executive workshops, industry 
                 conferences, and custom briefings. Topics include market intelligence 
                 best practices, strategic planning, and navigating industry disruption.
               </p>
-              <Button asChild variant="outline" className="group">
+              <Button asChild variant="outline" className="group hover:scale-105 transition-transform duration-300">
                 <Link to="/contact">
                   Inquire About Speaking
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -187,24 +188,26 @@ const ThoughtLeadership = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 gradient-hero">
-        <div className="container mx-auto px-4 text-center">
+      <section className="py-12 md:py-16 lg:py-20 gradient-hero">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <SectionHeading
             title="Want to Discuss These Ideas?"
             subtitle="Let's explore how these frameworks can apply to your business"
             centered
             light
           />
-          <Button
-            asChild
-            size="lg"
-            className="mt-8 gradient-accent text-secondary-foreground font-semibold"
-          >
-            <Link to="/contact">
-              Get in Touch
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
+          <div className="mt-6 md:mt-8 animate-fade-in" style={{ animationDelay: "0.3s", opacity: 0 }}>
+            <Button
+              asChild
+              size="lg"
+              className="gradient-accent text-secondary-foreground font-semibold hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg"
+            >
+              <Link to="/contact" className="group">
+                Get in Touch
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
     </Layout>

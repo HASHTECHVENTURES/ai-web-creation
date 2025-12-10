@@ -116,7 +116,7 @@ const About = () => {
               subtitle="A career dedicated to market intelligence excellence"
             />
 
-            <div className="mt-12 grid lg:grid-cols-2 gap-12 items-center">
+            <div className="mt-12">
               <div className="prose prose-lg max-w-none">
                 <p className="text-muted-foreground leading-relaxed">
                   Throughout my career, I have partnered with Fortune 500 companies, 
@@ -132,16 +132,6 @@ const About = () => {
                   experience has given me deep industry knowledge and a proven track 
                   record of delivering results.
                 </p>
-              </div>
-              
-              <div className="relative animate-fade-in">
-                <div className="aspect-square max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl">
-                  <img
-                    src={sanjivSpeaking}
-                    alt="Sanjiv Bhaskar speaking at conference"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
               </div>
             </div>
           </div>
@@ -192,6 +182,20 @@ const About = () => {
       {/* Industry Experience */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
+          {/* Speaker Image */}
+          <div className="mb-12 flex justify-center">
+            <div className="relative animate-fade-in max-w-4xl w-full">
+              <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl">
+                <img
+                  src={sanjivSpeaking}
+                  alt="Sanjiv Bhaskar speaking at conference"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
               <SectionHeading

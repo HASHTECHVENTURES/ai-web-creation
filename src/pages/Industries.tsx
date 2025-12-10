@@ -40,22 +40,22 @@ const industries = [{
 const Industries = () => {
   return <Layout>
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-12 md:py-16 lg:py-20 overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroIndustries})` }}
         />
         <div className="absolute inset-0 bg-primary/80" />
 
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-block px-4 py-2 rounded-full bg-white/20 text-white text-sm font-semibold mb-6 animate-fade-in">
+            <span className="inline-block px-4 py-2 rounded-full bg-white/20 text-white text-xs md:text-sm font-semibold mb-4 md:mb-6 animate-scale-in">
               Industries
             </span>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 animate-fade-in text-center">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 md:mb-6 animate-fade-in">
               Proven Excellence
             </h1>
-            <p className="text-xl text-white/90 leading-relaxed max-w-2xl mx-auto animate-fade-in text-center">
+            <p className="text-base md:text-lg lg:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto animate-fade-in">
               Deep domain knowledge across key industrial sectors, built through 
               years of research and consulting experience.
             </p>
@@ -64,37 +64,47 @@ const Industries = () => {
       </section>
 
       {/* Industries Grid */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-6">
-            {industries.map((industry, index) => <div key={industry.title} className={`group h-full flex flex-col p-8 rounded-3xl border transition-all duration-300 hover:-translate-y-1 animate-fade-in ${industry.featured ? "bg-card border-border shadow-card hover:shadow-glow" : "bg-muted/30 border-border/50 opacity-90"}`} style={{
-            animationDelay: `${index * 0.1}s`
-          }}>
-                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 flex-shrink-0 ${industry.featured ? "gradient-primary" : "bg-muted"}`}>
-                  <industry.icon size={32} className={industry.featured ? "text-primary-foreground" : "text-muted-foreground"} />
+      <section className="py-12 md:py-16 lg:py-20 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid sm:grid-cols-2 gap-4 md:gap-6 max-w-5xl mx-auto">
+            {industries.map((industry, index) => {
+              const isLastCard = index === industries.length - 1;
+              return (
+                <div 
+                  key={industry.title} 
+                  className={`group h-full flex flex-col p-6 md:p-8 rounded-2xl md:rounded-3xl border transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] animate-fade-in ${isLastCard ? 'sm:col-span-2 sm:max-w-2xl sm:mx-auto' : ''} ${industry.featured ? "bg-card border-border shadow-card hover:shadow-glow" : "bg-muted/30 border-border/50 opacity-90"}`} 
+                  style={{
+                    animationDelay: `${index * 0.1}s`,
+                    opacity: 0
+                  }}
+                >
+                <div className={`w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 flex-shrink-0 gradient-primary`}>
+                  <industry.icon size={28} className={`md:w-8 md:h-8 transition-transform duration-300 group-hover:scale-110 text-primary-foreground`} />
                 </div>
 
-                <h2 className="font-display text-2xl font-bold text-foreground mb-4">
+                <h2 className="font-display text-xl md:text-2xl font-bold text-foreground mb-3 md:mb-4 group-hover:text-primary transition-colors duration-300">
                   {industry.title}
                 </h2>
-                <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4 md:mb-6 flex-grow">
                   {industry.description}
                 </p>
 
                 <div className="flex flex-wrap gap-2 mt-auto">
-                  {industry.highlights.map(highlight => <span key={highlight} className={`px-3 py-1 rounded-full text-xs font-medium ${industry.featured ? "bg-primary/10 text-primary" : "bg-muted text-muted-foreground"}`}>
+                  {industry.highlights.map(highlight => <span key={highlight} className={`px-2 md:px-3 py-1 rounded-full text-[10px] md:text-xs font-medium transition-all duration-300 hover:scale-105 ${industry.featured ? "bg-primary/10 text-primary hover:bg-primary/20" : "bg-muted text-muted-foreground hover:bg-muted/80"}`}>
                       {highlight}
                     </span>)}
                 </div>
-              </div>)}
+              </div>
+            );
+            })}
           </div>
         </div>
       </section>
 
       {/* Why Industry Focus - Infographic Style */}
-      <section className="py-20 bg-muted/50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+      <section className="py-12 md:py-16 lg:py-20 bg-muted/50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 md:mb-16">
             <SectionHeading 
               badge="Approach" 
               title="Why Industry Focus Matters" 
@@ -104,7 +114,7 @@ const Industries = () => {
           </div>
           
           {/* Infographic Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
             {[
               {
                 icon: Clock,
@@ -137,29 +147,29 @@ const Industries = () => {
             ].map((item, index) => (
               <div 
                 key={index}
-                className={`relative h-full flex flex-col p-8 rounded-3xl bg-gradient-to-br ${item.gradient} border border-border/50 shadow-card hover:shadow-glow transition-all duration-300 hover:-translate-y-2 animate-fade-in group`}
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className={`relative h-full flex flex-col p-6 md:p-8 rounded-2xl md:rounded-3xl bg-gradient-to-br ${item.gradient} border border-border/50 shadow-card hover:shadow-glow transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] animate-fade-in group`}
+                style={{ animationDelay: `${index * 0.1}s`, opacity: 0 }}
               >
                 {/* Number Badge */}
-                <div className="absolute -top-3 -right-3 w-12 h-12 rounded-full gradient-primary flex items-center justify-center shadow-lg flex-shrink-0">
-                  <span className="text-primary-foreground font-bold text-sm">{item.number}</span>
+                <div className="absolute -top-2 md:-top-3 -right-2 md:-right-3 w-10 h-10 md:w-12 md:h-12 rounded-full gradient-primary flex items-center justify-center shadow-lg flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+                  <span className="text-primary-foreground font-bold text-xs md:text-sm">{item.number}</span>
                 </div>
                 
                 {/* Icon */}
-                <div className="w-16 h-16 rounded-2xl bg-background/80 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
-                  <item.icon className="w-8 h-8 text-primary" />
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-background/80 flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 flex-shrink-0">
+                  <item.icon className="w-7 h-7 md:w-8 md:h-8 text-primary transition-transform duration-300 group-hover:scale-110" />
                 </div>
                 
                 {/* Content */}
-                <h3 className="font-display text-xl font-bold text-foreground mb-3">
+                <h3 className="font-display text-lg md:text-xl font-bold text-foreground mb-2 md:mb-3 group-hover:text-primary transition-colors duration-300">
                   {item.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed flex-grow">
+                <p className="text-xs md:text-sm text-muted-foreground leading-relaxed flex-grow">
                   {item.description}
                 </p>
                 
                 {/* Decorative Line */}
-                <div className="absolute bottom-0 left-8 right-8 h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent rounded-full" />
+                <div className="absolute bottom-0 left-6 md:left-8 right-6 md:right-8 h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent rounded-full" />
               </div>
             ))}
           </div>
@@ -167,15 +177,17 @@ const Industries = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 gradient-hero">
-        <div className="container mx-auto px-4 text-center">
+      <section className="py-12 md:py-16 lg:py-20 gradient-hero">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <SectionHeading title="Need Industry-Specific Insights?" subtitle="Let's discuss how my domain expertise can benefit your project" centered light />
-          <Button asChild size="lg" className="mt-8 gradient-accent text-secondary-foreground font-semibold">
-            <Link to="/contact">
-              Start a Conversation
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
+          <div className="mt-6 md:mt-8 animate-fade-in" style={{ animationDelay: "0.3s", opacity: 0 }}>
+            <Button asChild size="lg" className="gradient-accent text-secondary-foreground font-semibold hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg">
+              <Link to="/contact" className="group">
+                Start a Conversation
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
     </Layout>;

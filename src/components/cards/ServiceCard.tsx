@@ -18,6 +18,22 @@ const colorVariants: Record<ColorVariant, string> = {
   amber: "bg-gradient-to-br from-amber-50 via-yellow-50/50 to-orange-50/30 dark:from-amber-950/40 dark:via-yellow-950/30 dark:to-orange-950/20 border-amber-100/50 dark:border-amber-800/30",
 };
 
+const iconColors: Record<ColorVariant, string> = {
+  blue: "text-blue-600 dark:text-blue-400",
+  teal: "text-teal-600 dark:text-teal-400",
+  purple: "text-purple-600 dark:text-purple-400",
+  rose: "text-rose-600 dark:text-rose-400",
+  amber: "text-amber-600 dark:text-amber-400",
+};
+
+const iconBackgrounds: Record<ColorVariant, string> = {
+  blue: "bg-blue-100 dark:bg-blue-900/30",
+  teal: "bg-teal-100 dark:bg-teal-900/30",
+  purple: "bg-purple-100 dark:bg-purple-900/30",
+  rose: "bg-rose-100 dark:bg-rose-900/30",
+  amber: "bg-amber-100 dark:bg-amber-900/30",
+};
+
 interface ServiceCardProps {
   icon: LucideIcon;
   title: string;
@@ -37,43 +53,45 @@ export const ServiceCard = ({
 }: ServiceCardProps) => {
   return (
     <div
-      className={`group relative h-full flex flex-col p-6 md:p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden ${
+      className={`group relative h-full flex flex-col p-4 md:p-5 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] overflow-hidden ${
         featured
           ? "gradient-primary text-primary-foreground shadow-glow"
-          : `border border-white/20 shadow-card hover:shadow-glow bg-white/95`
+          : `border border-border/30 shadow-card hover:shadow-glow hover:border-primary/50 bg-white/95`
       }`}
-      style={
-        !featured
-          ? {
-              background: `${abstractPatterns[colorVariant]}, rgba(255, 255, 255, 0.9)`,
-            }
-          : undefined
-      }
     >
+      {/* Background Pattern Layer */}
+      {!featured && (
+        <div
+          className="absolute inset-0 rounded-2xl opacity-100"
+          style={{
+            background: abstractPatterns[colorVariant],
+          }}
+        />
+      )}
       
       {/* Content */}
       <div className="relative z-10 flex flex-col h-full">
         {/* Icon */}
         <div
-          className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 flex-shrink-0 ${
+          className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 flex-shrink-0 ${
             featured
               ? "bg-primary-foreground/20"
-              : "gradient-primary"
+              : iconBackgrounds[colorVariant]
           }`}
         >
-          <Icon size={28} className={featured ? "text-primary-foreground" : "text-primary-foreground"} />
+          <Icon size={24} className={`${featured ? "text-primary-foreground" : iconColors[colorVariant]} transition-transform duration-300 group-hover:scale-110`} />
         </div>
 
         {/* Content */}
         <h3
-          className={`font-display text-xl font-bold mb-3 ${
+          className={`font-display text-lg font-bold mb-2 min-h-[3.5rem] flex items-start ${
             featured ? "text-primary-foreground" : "text-foreground"
           }`}
         >
           {title}
         </h3>
         <p
-          className={`text-sm leading-relaxed mb-4 flex-grow ${
+          className={`text-sm leading-relaxed ${
             featured ? "text-primary-foreground/80" : "text-muted-foreground"
           }`}
         >

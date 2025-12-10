@@ -1,20 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  Dialog,
+  DialogContent,
+} from "@/components/ui/dialog";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, FileText, Building2, MapPin, Phone, Mail, Briefcase } from "lucide-react";
-import ReactMarkdown from "react-markdown";
+import { Loader2, FileText, Building2, MapPin, Phone, Mail, Briefcase, Sparkles } from "lucide-react";
 import heroMarketResearch from "@/assets/hero-market-research.png";
+
+const marketFacts = [
+  "Market research can reduce business risk by up to 40%",
+  "Companies that conduct regular market research grow 3x faster than those that don't",
+  "85% of successful businesses use market intelligence for strategic decisions",
+  "AI-powered analysis can process market data 100x faster than traditional methods",
+  "Market research helps identify opportunities worth 5-10x the investment",
+  "Data-driven decisions increase revenue by an average of 6% annually",
+];
 
 const MarketResearch = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const [report, setReport] = useState<string | null>(null);
+  const [currentFactIndex, setCurrentFactIndex] = useState(0);
   const [formData, setFormData] = useState({
     companyName: "",
     city: "",
@@ -22,6 +36,16 @@ const MarketResearch = () => {
     email: "",
     lineOfBusiness: "",
   });
+
+  // Rotate facts while loading
+  useEffect(() => {
+    if (isLoading) {
+      const interval = setInterval(() => {
+        setCurrentFactIndex((prev) => (prev + 1) % marketFacts.length);
+      }, 3000);
+      return () => clearInterval(interval);
+    }
+  }, [isLoading]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,7 +60,7 @@ const MarketResearch = () => {
     }
 
     setIsLoading(true);
-    setReport(null);
+    setCurrentFactIndex(0);
 
     try {
       const { data, error } = await supabase.functions.invoke('market-research', {
@@ -45,20 +69,18 @@ const MarketResearch = () => {
 
       if (error) throw error;
 
-      setReport(data.report);
-      toast({
-        title: "Report Generated",
-        description: "Your market research report is ready.",
+      // Navigate to results page with report data
+      navigate("/market-research/result", {
+        state: { report: data.report },
       });
     } catch (error) {
       console.error('Error generating report:', error);
+      setIsLoading(false);
       toast({
         title: "Error",
         description: "Failed to generate report. Please try again.",
         variant: "destructive",
       });
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -72,22 +94,22 @@ const MarketResearch = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="pt-32 pb-16 relative overflow-hidden">
+      <section className="pt-24 md:pt-32 pb-12 md:pb-16 relative overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroMarketResearch})` }}
         />
         <div className="absolute inset-0 bg-primary/80" />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 text-white mb-6">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-3xl mx-auto text-center animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 text-white mb-4 md:mb-6 animate-scale-in">
               <FileText size={16} />
-              <span className="text-sm font-medium">AI-Powered Analysis</span>
+              <span className="text-xs md:text-sm font-medium">AI-Powered Analysis</span>
             </div>
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-6">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 md:mb-6">
               Market Research
             </h1>
-            <p className="text-lg text-white/90">
+            <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto">
               Get comprehensive market intelligence powered by AI. Enter your company details 
               and receive a detailed analysis of your market landscape.
             </p>
@@ -96,16 +118,16 @@ const MarketResearch = () => {
       </section>
 
       {/* Form Section */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
+      <section className="py-12 md:py-16 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto">
-            <div className="bg-card rounded-2xl p-8 shadow-card border border-border">
+            <div className="bg-card rounded-xl md:rounded-2xl p-6 md:p-8 shadow-card border border-border hover:shadow-glow transition-shadow duration-300 animate-fade-in">
               <SectionHeading
                 title="Enter Company Details"
                 subtitle="Provide your company information to generate a tailored market research report."
               />
 
-              <form onSubmit={handleSubmit} className="space-y-6 mt-8">
+              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6 mt-6 md:mt-8">
                 <div className="space-y-2">
                   <Label htmlFor="companyName" className="flex items-center gap-2 text-foreground">
                     <Building2 size={16} className="text-primary" />
@@ -191,7 +213,7 @@ const MarketResearch = () => {
 
                 <Button
                   type="submit"
-                  className="w-full gradient-primary text-white shadow-glow"
+                  className="w-full gradient-primary text-white shadow-glow hover:scale-105 hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                   disabled={isLoading}
                 >
                   {isLoading ? (
@@ -212,38 +234,38 @@ const MarketResearch = () => {
         </div>
       </section>
 
-      {/* Report Section */}
-      {report && (
-        <section className="py-16 bg-muted">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <SectionHeading
-                title="Your Market Research Report"
-                subtitle="AI-generated analysis based on your company details"
-              />
-              <div className="mt-8 bg-card rounded-2xl p-8 shadow-card border border-border">
-                <article className="prose prose-lg prose-headings:text-foreground prose-headings:font-display prose-p:text-foreground prose-strong:text-foreground prose-li:text-foreground prose-ul:text-foreground max-w-none">
-                  <ReactMarkdown
-                    components={{
-                      h1: ({ children }) => <h1 className="text-3xl font-bold text-foreground mb-4 mt-6">{children}</h1>,
-                      h2: ({ children }) => <h2 className="text-2xl font-bold text-foreground mb-3 mt-6 border-b border-border pb-2">{children}</h2>,
-                      h3: ({ children }) => <h3 className="text-xl font-semibold text-foreground mb-2 mt-4">{children}</h3>,
-                      p: ({ children }) => <p className="text-foreground mb-4 leading-relaxed">{children}</p>,
-                      strong: ({ children }) => <strong className="font-semibold text-foreground">{children}</strong>,
-                      ul: ({ children }) => <ul className="list-disc list-inside mb-4 space-y-2">{children}</ul>,
-                      ol: ({ children }) => <ol className="list-decimal list-inside mb-4 space-y-2">{children}</ol>,
-                      li: ({ children }) => <li className="text-foreground">{children}</li>,
-                      hr: () => <hr className="my-6 border-border" />,
-                    }}
-                  >
-                    {report}
-                  </ReactMarkdown>
-                </article>
+      {/* Loading Dialog */}
+      <Dialog open={isLoading} onOpenChange={() => {}}>
+        <DialogContent className="sm:max-w-md [&>button]:hidden" onPointerDownOutside={(e) => e.preventDefault()} onInteractOutside={(e) => e.preventDefault()}>
+          <div className="flex flex-col items-center text-center space-y-4 md:space-y-6 py-4">
+            <div className="relative">
+              <Loader2 className="h-10 w-10 md:h-12 md:w-12 animate-spin text-primary" />
+              <Sparkles className="absolute -top-1 -right-1 h-5 w-5 md:h-6 md:w-6 text-secondary animate-pulse" />
+            </div>
+            <div className="space-y-2">
+              <h3 className="font-display text-lg md:text-xl font-bold text-foreground">
+                Generating Your Report
+              </h3>
+              <p className="text-xs md:text-sm text-muted-foreground">
+                Our AI is analyzing market data and preparing insights...
+              </p>
+            </div>
+            <div className="w-full space-y-3">
+              <div className="bg-muted/50 rounded-lg p-3 md:p-4 border border-border/50 animate-fade-in">
+                <p className="text-xs md:text-sm font-semibold text-primary mb-2">Did you know?</p>
+                <p className="text-xs md:text-sm text-foreground transition-opacity duration-500">
+                  {marketFacts[currentFactIndex]}
+                </p>
+              </div>
+            </div>
+            <div className="w-full">
+              <div className="h-2 bg-muted rounded-full overflow-hidden">
+                <div className="h-full bg-gradient-to-r from-primary to-secondary animate-pulse transition-all duration-1000" style={{ width: '60%' }} />
               </div>
             </div>
           </div>
-        </section>
-      )}
+        </DialogContent>
+      </Dialog>
     </Layout>
   );
 };
