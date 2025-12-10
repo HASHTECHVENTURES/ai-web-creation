@@ -15,7 +15,6 @@ import { Layout } from "@/components/layout/Layout";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ServiceCard } from "@/components/cards/ServiceCard";
 import { ClientCard } from "@/components/cards/ClientCard";
-import sanjivBhaskar from "@/assets/sanjiv-bhaskar.png";
 import heroConsulting from "@/assets/hero-consulting.png";
 
 const services = [
@@ -138,40 +137,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* About Mini Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-[auto_1fr] gap-8 items-center">
-            <div className="order-2 lg:order-1 w-72 mx-auto lg:mx-0">
-              <div className="aspect-square rounded-3xl overflow-hidden shadow-card">
-                <img
-                  src={sanjivBhaskar}
-                  alt="Sanjiv Bhaskar - Founder of Markets-Simplified"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-            <div className="order-1 lg:order-2">
-              <SectionHeading
-                badge="About"
-                title="Meet Sanjiv Bhaskar"
-                subtitle="Founder & Principal Consultant at Markets-Simplified"
-              />
-              <p className="text-muted-foreground leading-relaxed mt-6 mb-8">
-                With over 25 years of experience in market intelligence and strategic consulting, Sanjiv has helped
-                Fortune 500 companies, private equity firms, and growing businesses navigate complex markets and make
-                confident decisions.
-              </p>
-              <Button asChild variant="outline" className="group">
-                <Link to="/about">
-                  Read Full Bio
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Services Section */}
       <section className="py-20 bg-muted/50">
