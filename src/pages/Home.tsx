@@ -29,29 +29,25 @@ const services = [
   {
     icon: Target,
     title: "Strategy Development",
-    description:
-      "Market-entry strategies, pricing optimization, and go-to-market planning for sustainable growth.",
+    description: "Market-entry strategies, pricing optimization, and go-to-market planning for sustainable growth.",
     colorVariant: "teal" as const,
   },
   {
     icon: Handshake,
     title: "M&A Advisory Support",
-    description:
-      "Target screening, market validation, and due diligence support for successful transactions.",
+    description: "Target screening, market validation, and due diligence support for successful transactions.",
     colorVariant: "purple" as const,
   },
   {
     icon: TrendingUp,
     title: "Business Growth Consulting",
-    description:
-      "Product launch support, expansion strategies, and channel optimization for accelerated growth.",
+    description: "Product launch support, expansion strategies, and channel optimization for accelerated growth.",
     colorVariant: "rose" as const,
   },
   {
     icon: Users,
     title: "Executive Advisory",
-    description:
-      "Strategic briefings, leadership advisory, and decision support for C-suite executives.",
+    description: "Strategic briefings, leadership advisory, and decision support for C-suite executives.",
     colorVariant: "amber" as const,
   },
 ];
@@ -97,12 +93,11 @@ const Home = () => {
                 Led by Sanjiv Bhaskar
               </span>
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6">
-                Strategic Insights.{" "}
-                <span className="text-gradient-gold">Simplified.</span>
+                Strategic Insights. <span className="text-gradient-gold">Simplified.</span>
               </h1>
               <p className="text-xl text-primary-foreground/80 leading-relaxed mb-8 max-w-xl">
-                25+ years of market intelligence and strategic consulting experience, 
-                helping businesses navigate complex decisions with clarity and confidence.
+                25+ years of market intelligence and strategic consulting experience, helping businesses navigate
+                complex decisions with clarity and confidence.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button
@@ -163,9 +158,9 @@ const Home = () => {
                 subtitle="Founder & Principal Consultant at Markets-Simplified"
               />
               <p className="text-muted-foreground leading-relaxed mt-6 mb-8">
-                With over 25 years of experience in market intelligence and strategic consulting, 
-                Sanjiv has helped Fortune 500 companies, private equity firms, and growing 
-                businesses navigate complex markets and make confident decisions.
+                With over 25 years of experience in market intelligence and strategic consulting, Sanjiv has helped
+                Fortune 500 companies, private equity firms, and growing businesses navigate complex markets and make
+                confident decisions.
               </p>
               <Button asChild variant="outline" className="group">
                 <Link to="/about">
@@ -188,7 +183,7 @@ const Home = () => {
             centered
           />
 
-          <div className="flex flex-wrap justify-center gap-6 mt-12">
+          <div className="flex flex-wrap justify-center gap-5 mt-12">
             {services.map((service) => (
               <div key={service.title} className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                 <ServiceCard
@@ -224,12 +219,7 @@ const Home = () => {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             {clients.map((client) => (
-              <ClientCard
-                key={client.title}
-                icon={client.icon}
-                title={client.title}
-                description={client.description}
-              />
+              <ClientCard key={client.title} icon={client.icon} title={client.title} description={client.description} />
             ))}
           </div>
         </div>
@@ -245,11 +235,7 @@ const Home = () => {
             light
           />
           <div className="flex flex-wrap justify-center gap-4 mt-10">
-            <Button
-              asChild
-              size="lg"
-              className="gradient-accent text-secondary-foreground font-semibold"
-            >
+            <Button asChild size="lg" className="gradient-accent text-secondary-foreground font-semibold">
               <Link to="/contact">
                 Get Started
                 <ArrowRight className="ml-2 h-5 w-5" />
