@@ -24,30 +24,35 @@ const services = [
     title: "Market Intelligence & Insights",
     description:
       "Comprehensive market analysis, competitor benchmarking, and trend identification to drive informed decisions.",
+    colorVariant: "blue" as const,
   },
   {
     icon: Target,
     title: "Strategy Development",
     description:
       "Market-entry strategies, pricing optimization, and go-to-market planning for sustainable growth.",
+    colorVariant: "teal" as const,
   },
   {
     icon: Handshake,
     title: "M&A Advisory Support",
     description:
       "Target screening, market validation, and due diligence support for successful transactions.",
+    colorVariant: "purple" as const,
   },
   {
     icon: TrendingUp,
     title: "Business Growth Consulting",
     description:
       "Product launch support, expansion strategies, and channel optimization for accelerated growth.",
+    colorVariant: "rose" as const,
   },
   {
     icon: Users,
     title: "Executive Advisory",
     description:
       "Strategic briefings, leadership advisory, and decision support for C-suite executives.",
+    colorVariant: "amber" as const,
   },
 ];
 
@@ -190,6 +195,7 @@ const Home = () => {
                   icon={service.icon}
                   title={service.title}
                   description={service.description}
+                  colorVariant={service.colorVariant}
                 />
               </div>
             ))}
