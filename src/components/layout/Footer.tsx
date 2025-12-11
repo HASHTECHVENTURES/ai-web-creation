@@ -19,18 +19,18 @@ const industries = [
 
 export const Footer = () => {
   return (
-    <footer className="gradient-hero text-primary-foreground">
+    <footer className="bg-slate-800 text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 items-start">
           {/* Brand */}
           <div className="lg:col-span-1 animate-fade-in">
-            <Link to="/" className="flex items-center gap-2 mb-4 hover:opacity-80 transition-opacity duration-300 group">
+            <Link to="/" className="flex items-center gap-1 mb-4 hover:opacity-80 transition-opacity duration-300 group">
               <img 
                 src={companyLogo} 
                 alt="Markets-Simplified Logo" 
-                className="h-12 w-auto md:h-14 transition-transform duration-300 group-hover:scale-105"
+                className="h-10 w-auto md:h-12 transition-transform duration-300 group-hover:scale-105"
               />
-              <span className="font-display font-bold text-base md:text-lg">
+              <span className="font-display font-bold text-base md:text-lg text-white">
                 Markets-<span className="text-secondary">Simplified</span>
               </span>
             </Link>
