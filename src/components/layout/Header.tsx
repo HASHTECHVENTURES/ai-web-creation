@@ -22,11 +22,11 @@ export const Header = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity duration-300 group">
+          <Link to="/" className="flex items-center gap-1 hover:opacity-80 transition-opacity duration-300 group">
             <img
               src={companyLogo}
               alt="Markets-Simplified Logo"
-              className="h-16 w-auto md:h-20 lg:h-24 transition-transform duration-300 group-hover:scale-105"
+              className="h-12 w-auto md:h-14 lg:h-16 transition-transform duration-300 group-hover:scale-105"
             />
             <span className="font-display font-bold text-lg md:text-xl text-foreground">
               Markets-<span className="text-primary">Simplified</span>
