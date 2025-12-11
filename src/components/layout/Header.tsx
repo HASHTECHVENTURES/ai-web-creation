@@ -23,7 +23,7 @@ export const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity duration-300 group">
-            <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-primary flex items-center justify-center p-1.5 transition-transform duration-300 group-hover:scale-110">
+            <div className="w-12 h-12 md:w-14 md:h-14 rounded-lg bg-primary flex items-center justify-center p-2 transition-transform duration-300 group-hover:scale-110">
               <img 
                 src={companyLogo} 
                 alt="Markets-Simplified Logo" 
@@ -56,7 +56,7 @@ export const Header = () => {
           {/* CTA Button */}
           <div className="hidden lg:block">
             <Button asChild className="gradient-primary text-primary-foreground shadow-glow hover:scale-105 hover:shadow-xl transition-all duration-300">
-              <Link to="/market-research">Get Free</Link>
+              <Link to="/market-research">FREE MARKET SNAPSHOT</Link>
             </Button>
           </div>
 
@@ -92,7 +92,7 @@ export const Header = () => {
             ))}
             <div className="px-4 pt-4">
               <Button asChild className="w-full gradient-primary text-primary-foreground hover:scale-105 transition-transform duration-300">
-                <Link to="/market-research" onClick={() => setIsOpen(false)}>Get Free</Link>
+                <Link to="/market-research" onClick={() => setIsOpen(false)}>FREE MARKET SNAPSHOT</Link>
               </Button>
             </div>
           </nav>
