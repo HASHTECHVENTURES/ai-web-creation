@@ -108,6 +108,10 @@ const MarketResearchResult = () => {
         addFooter(pdf, pageWidth, pageHeight);
         pdf.addPage();
         yPosition = margin;
+        // Reset text styling after page break
+        pdf.setFontSize(11);
+        pdf.setFont("helvetica", "normal");
+        pdf.setTextColor(0, 0, 0);
       }
       
       const line = lines[i];
@@ -127,6 +131,10 @@ const MarketResearchResult = () => {
       addFooter(pdf, pageWidth, pageHeight);
       pdf.addPage();
       yPosition = margin;
+      // Reset text styling after page break
+      pdf.setFontSize(11);
+      pdf.setFont("helvetica", "normal");
+      pdf.setTextColor(0, 0, 0);
     }
 
     // Disclaimer box
