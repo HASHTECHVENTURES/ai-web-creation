@@ -86,11 +86,35 @@ const About = () => {
               <p className="text-xl text-primary-foreground/80 leading-relaxed mb-4">
                 Founder & Principal Consultant
               </p>
-              <p className="text-primary-foreground/70 leading-relaxed max-w-xl">
+              <p className="text-primary-foreground/70 leading-relaxed max-w-xl mb-6">
                 With over 25 years of experience in market intelligence and strategic 
                 consulting, I help businesses transform complex market data into 
                 actionable strategies that drive growth.
               </p>
+              
+              {/* Expertise Tags */}
+              <div className="flex flex-wrap gap-2 max-w-xl">
+                {strengths.map((tag, index) => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1.5 rounded-full text-xs font-semibold text-white"
+                    style={{
+                      background: [
+                        'linear-gradient(135deg, hsl(220 80% 50%), hsl(200 70% 45%))',
+                        'linear-gradient(135deg, hsl(170 60% 40%), hsl(150 50% 35%))',
+                        'linear-gradient(135deg, hsl(270 60% 50%), hsl(250 50% 45%))',
+                        'linear-gradient(135deg, hsl(340 70% 50%), hsl(320 60% 45%))',
+                        'linear-gradient(135deg, hsl(45 90% 50%), hsl(35 80% 45%))',
+                        'linear-gradient(135deg, hsl(190 70% 45%), hsl(170 60% 40%))',
+                        'linear-gradient(135deg, hsl(260 60% 55%), hsl(240 50% 50%))',
+                        'linear-gradient(135deg, hsl(30 80% 50%), hsl(20 70% 45%))',
+                      ][index % 8],
+                    }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
 
             <div className="relative animate-fade-in-right" style={{ animationDelay: "0.2s" }}>
