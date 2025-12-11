@@ -220,44 +220,25 @@ const About = () => {
             </div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div>
-              <SectionHeading
-                badge="Industries"
-                title="Industry Expertise"
-                subtitle="Deep domain knowledge across key sectors"
-              />
-              <div className="grid grid-cols-2 gap-4 mt-8">
-                {industries.map((industry) => (
-                  <div
-                    key={industry.name}
-                    className="flex items-center gap-3 p-4 rounded-xl bg-muted/50 border border-border"
-                  >
-                    <industry.icon className="w-6 h-6 text-primary" />
-                    <span className="font-medium text-foreground text-sm">
-                      {industry.name}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <SectionHeading
-                badge="Strengths"
-                title="Core Competencies"
-                subtitle="Skills honed through decades of practice"
-              />
-              <div className="flex flex-wrap gap-3 mt-8">
-                {strengths.map((strength) => (
-                  <span
-                    key={strength}
-                    className="px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm"
-                  >
-                    {strength}
+          <div>
+            <SectionHeading
+              badge="Industries"
+              title="Industry Expertise"
+              subtitle="Deep domain knowledge across key sectors"
+              centered
+            />
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 max-w-3xl mx-auto">
+              {industries.map((industry) => (
+                <div
+                  key={industry.name}
+                  className="flex items-center gap-3 p-4 rounded-xl bg-muted/50 border border-border"
+                >
+                  <industry.icon className="w-6 h-6 text-primary" />
+                  <span className="font-medium text-foreground text-sm">
+                    {industry.name}
                   </span>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
