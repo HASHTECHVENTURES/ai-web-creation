@@ -235,3 +235,6 @@ const MarketResearchResult = () => {
 };
 
 export default MarketResearchResult;
+
+
+

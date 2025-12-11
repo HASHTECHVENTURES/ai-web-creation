@@ -82,35 +82,34 @@ const Home = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
-        {/* Animated Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-animated" />
-        
-        {/* Floating Orbs for depth */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-primary/20 blur-3xl animate-float" />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-secondary/20 blur-3xl animate-float-delayed" />
-          <div className="absolute top-1/2 right-1/3 w-64 h-64 rounded-full bg-accent/15 blur-3xl animate-float-slow" />
+      <section className="relative overflow-hidden bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950">
+        <div className="absolute inset-0">
+          <div className="absolute -left-24 top-0 h-72 w-72 rounded-full bg-rose-500/30 blur-3xl" />
+          <div className="absolute right-10 top-10 h-64 w-64 rounded-full bg-rose-400/25 blur-3xl" />
+          <div className="absolute inset-0 hero-grid" />
         </div>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div className="animate-fade-in text-center lg:text-left">
-              <span className="inline-block px-4 py-2 rounded-full bg-primary/20 text-secondary text-sm font-semibold mb-4 md:mb-6 animate-scale-in">
-                Led by Sanjiv Bhaskar
-              </span>
-              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-4 md:mb-6">
-                Strategic Insights. <span className="text-gradient-gold">Simplified.</span>
-              </h1>
-              <p className="text-base sm:text-lg md:text-xl text-primary-foreground/80 leading-relaxed mb-6 md:mb-8 max-w-xl mx-auto lg:mx-0">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-16 lg:py-20 relative z-10">
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
+            <div className="space-y-6">
+              <div className="h-1.5 w-16 bg-rose-400 rounded-full" />
+              <div className="space-y-3">
+                <p className="text-xs sm:text-sm tracking-[0.2em] text-rose-300 font-semibold uppercase">
+                  Led by Sanjiv Bhaskar
+                </p>
+                <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.05]">
+                  Strategic Insights. <span className="text-gradient-gold">Simplified.</span>
+                </h1>
+              </div>
+              <p className="text-base sm:text-lg md:text-xl text-slate-200 max-w-2xl">
                 25+ years of market intelligence and strategic consulting experience, helping businesses navigate
                 complex decisions with clarity and confidence.
               </p>
-              <div className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-3 md:gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
                 <Button
                   asChild
                   size="lg"
-                  className="gradient-accent text-secondary-foreground font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                  className="bg-rose-600 hover:bg-rose-700 text-white font-semibold px-7 shadow-lg shadow-rose-500/20"
                 >
                   <Link to="/contact" className="group">
                     Get Started
@@ -120,26 +119,21 @@ const Home = () => {
                 <Button
                   asChild
                   size="lg"
-                  className="border border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground hover:scale-105 transition-all duration-300"
+                  variant="outline"
+                  className="border-white/40 text-white bg-transparent"
                 >
                   <Link to="/about">Learn More</Link>
                 </Button>
               </div>
             </div>
 
-            <div className="relative animate-fade-in-right mt-8 lg:mt-0" style={{ animationDelay: "0.2s" }}>
-              <div className="w-full max-w-lg mx-auto aspect-square rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-300">
-                <img
-                  src={heroVennDiagram}
-                  alt="Sanjiv Bhaskar presenting data-driven strategy - Consulting meets Market Research"
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                />
-              </div>
-              {/* Floating Stats Card */}
-              <div className="absolute -bottom-4 md:-bottom-6 -left-4 md:-left-6 bg-card p-4 md:p-6 rounded-xl md:rounded-2xl shadow-card animate-float hover:scale-105 transition-transform duration-300">
-                <div className="text-2xl md:text-3xl font-display font-bold text-primary">25+</div>
-                <div className="text-xs md:text-sm text-muted-foreground">Years Experience</div>
-              </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-l from-slate-900 via-slate-900/80 to-transparent rounded-2xl md:rounded-3xl" />
+              <img
+                src={heroVennDiagram}
+                alt="Sanjiv Bhaskar presenting data-driven strategy - Consulting meets Market Research"
+                className="relative rounded-2xl md:rounded-3xl w-full shadow-2xl ring-1 ring-black/5 object-cover"
+              />
             </div>
           </div>
         </div>
