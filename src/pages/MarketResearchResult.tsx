@@ -98,7 +98,7 @@ const MarketResearchResult = () => {
     // Add report content
     pdf.setFontSize(11);
     pdf.setFont("helvetica", "normal");
-    pdf.setTextColor(55, 65, 81);
+    pdf.setTextColor(0, 0, 0);
 
     const lines = pdf.splitTextToSize(plainText, contentWidth);
     
@@ -143,7 +143,7 @@ const MarketResearchResult = () => {
     yPosition += 6;
     pdf.setFontSize(9);
     pdf.setFont("helvetica", "normal");
-    pdf.setTextColor(107, 114, 128);
+    pdf.setTextColor(60, 60, 60);
     const disclaimer = "This report is generated using artificial intelligence and should be used for informational purposes only. The analysis and insights provided are based on publicly available data and AI algorithms. Markets-Simplified recommends validating this information with additional research and professional consultation before making business decisions.";
     const disclaimerLines = pdf.splitTextToSize(disclaimer, contentWidth - 10);
     disclaimerLines.forEach((line: string) => {
