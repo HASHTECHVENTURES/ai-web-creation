@@ -1,41 +1,53 @@
 import { Link } from "react-router-dom";
-import { Building2, Zap, Leaf, Wrench, HardHat, ArrowRight, Clock, Target, Users, Cog } from "lucide-react";
+import { ArrowRight, Clock, Target, Users, Cog } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import heroIndustries from "@/assets/hero-industries.png";
+import industryBuildingTechnologies from "@/assets/industry-building-technologies.png";
+import industryIndustrialAutomation from "@/assets/industry-industrial-automation.jpeg";
+import industryEnvironmentalSolutions from "@/assets/industry-environmental-solutions.jpg";
+import industryWeldingIndustries from "@/assets/industry-welding-industries.jpg";
+import industryPpe from "@/assets/industry-ppe.jpg";
 
 const industries = [{
-  icon: Building2,
+  image: industryBuildingTechnologies,
   title: "Building Technologies",
   description: "Deep expertise in HVAC, building automation, smart buildings, and construction technologies. Understanding market dynamics, competitive landscapes, and growth opportunities in the evolving built environment sector.",
   highlights: ["HVAC systems and components", "Building automation and controls", "Smart building solutions", "Energy management systems"],
   featured: true
 }, {
-  icon: Zap,
+  image: industryIndustrialAutomation,
   title: "Industrial Automation",
   description: "Comprehensive knowledge of factory automation, robotics, industrial IoT, and Industry 4.0 trends. Helping clients navigate digital transformation and automation investments.",
   highlights: ["Factory automation systems", "Industrial robotics", "IIoT and connectivity", "Process automation"],
   featured: true
 }, {
-  icon: Leaf,
+  image: industryEnvironmentalSolutions,
   title: "Environmental Solutions",
   description: "Market intelligence across sustainability, clean technology, and environmental monitoring sectors. Supporting clients in the growing green economy.",
   highlights: ["Air quality monitoring", "Water treatment solutions", "Waste management tech", "Sustainability consulting"],
   featured: true
 }, {
-  icon: Wrench,
+  image: industryWeldingIndustries,
   title: "Welding Industries",
   description: "Specialized expertise in welding equipment, consumables, and related technologies. Understanding manufacturing trends and technology evolution in joining technologies.",
   highlights: ["Welding equipment and systems", "Consumables and materials", "Automation in welding", "Safety and compliance"],
   featured: true
 }, {
-  icon: HardHat,
+  image: industryPpe,
   title: "Personal Protective Equipment",
   description: "Market research and analysis in the PPE sector, covering industrial safety, respiratory protection, and workplace safety solutions.",
   highlights: ["Industrial safety equipment", "Respiratory protection", "Workplace safety solutions", "Regulatory compliance"],
   featured: false
 }];
+
+const tagGradients = [
+  "bg-gradient-to-r from-primary/20 via-primary/10 to-primary/0 text-primary border border-primary/30 shadow-[0_1px_4px_rgba(0,0,0,0.06)]",
+  "bg-gradient-to-r from-amber-100 via-orange-50 to-amber-100/60 text-amber-900 border border-amber-200/80 shadow-[0_1px_4px_rgba(0,0,0,0.06)]",
+  "bg-gradient-to-r from-emerald-100 via-teal-50 to-emerald-100/60 text-emerald-900 border border-emerald-200/80 shadow-[0_1px_4px_rgba(0,0,0,0.06)]",
+  "bg-gradient-to-r from-violet-100 via-purple-50 to-violet-100/60 text-violet-900 border border-violet-200/80 shadow-[0_1px_4px_rgba(0,0,0,0.06)]"
+];
 
 const Industries = () => {
   return <Layout>
@@ -78,8 +90,13 @@ const Industries = () => {
                     opacity: 0
                   }}
                 >
-                <div className={`w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 flex-shrink-0 gradient-primary`}>
-                  <industry.icon size={28} className={`md:w-8 md:h-8 transition-transform duration-300 group-hover:scale-110 text-primary-foreground`} />
+                <div className="w-full aspect-[3/2] rounded-xl md:rounded-2xl overflow-hidden mb-4 md:mb-6 shadow-md border border-border/60 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg bg-background">
+                  <img 
+                    src={industry.image} 
+                    alt={`${industry.title} visual`} 
+                    loading="lazy" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
 
                 <h2 className="font-display text-xl md:text-2xl font-bold text-foreground mb-3 md:mb-4 group-hover:text-primary transition-colors duration-300">
@@ -90,9 +107,17 @@ const Industries = () => {
                 </p>
 
                 <div className="flex flex-wrap gap-2 mt-auto">
-                  {industry.highlights.map(highlight => <span key={highlight} className={`px-2 md:px-3 py-1 rounded-full text-[10px] md:text-xs font-medium transition-all duration-300 hover:scale-105 ${industry.featured ? "bg-primary/10 text-primary hover:bg-primary/20" : "bg-muted text-muted-foreground hover:bg-muted/80"}`}>
-                      {highlight}
-                    </span>)}
+                  {industry.highlights.map((highlight, highlightIndex) => {
+                    const gradientClass = tagGradients[highlightIndex % tagGradients.length];
+                    return (
+                      <span 
+                        key={highlight} 
+                        className={`px-2 md:px-3 py-1 rounded-full text-[10px] md:text-xs font-medium transition-all duration-300 hover:scale-105 hover:shadow-md ${gradientClass}`}
+                      >
+                        {highlight}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
             );

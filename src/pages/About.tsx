@@ -1,20 +1,15 @@
 import { Link } from "react-router-dom";
-import {
-  Award,
-  Briefcase,
-  GraduationCap,
-  Target,
-  Users,
-  TrendingUp,
-  Building2,
-  Zap,
-  ArrowRight,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import sanjivBhaskar from "@/assets/sanjiv-bhaskar.png";
 import sanjivSpeaking from "@/assets/sanjiv-speaking.png";
+import industryBuildingTechnologies from "@/assets/industry-building-technologies.png";
+import industryIndustrialAutomation from "@/assets/industry-industrial-automation.jpeg";
+import industryEnvironmentalSolutions from "@/assets/industry-environmental-solutions.jpg";
+import industryWeldingIndustries from "@/assets/industry-welding-industries.jpg";
+import industryPpe from "@/assets/industry-ppe.jpg";
 
 const timeline = [
   {
@@ -59,10 +54,11 @@ const strengths = [
 ];
 
 const industries = [
-  { icon: Building2, name: "Building Technologies" },
-  { icon: Zap, name: "Industrial Automation" },
-  { icon: TrendingUp, name: "Environmental Solutions" },
-  { icon: Target, name: "Welding Industries" },
+  { image: industryBuildingTechnologies, name: "Building Technologies" },
+  { image: industryIndustrialAutomation, name: "Industrial Automation" },
+  { image: industryEnvironmentalSolutions, name: "Environmental Solutions" },
+  { image: industryWeldingIndustries, name: "Welding Industries" },
+  { image: industryPpe, name: "Personal Protective Equipment" },
 ];
 
 const About = () => {
@@ -163,19 +159,21 @@ const About = () => {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-20 bg-muted/50">
-        <div className="container mx-auto px-4">
+      <section className="py-20 relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-primary-foreground">
+        <div className="absolute inset-0 opacity-[0.06] hero-grid" />
+        <div className="container mx-auto px-4 relative z-10">
           <SectionHeading
             badge="Experience"
             title="Career Timeline"
             subtitle="25+ years of progressive experience in market intelligence"
             centered
+            light
           />
 
           <div className="max-w-3xl mx-auto mt-12">
             <div className="relative">
               {/* Timeline Line */}
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border" />
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-white/15" />
 
               {timeline.map((item, index) => (
                 <div
@@ -184,7 +182,7 @@ const About = () => {
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   {/* Timeline Dot */}
-                  <div className="absolute left-6 top-1 w-5 h-5 rounded-full gradient-primary border-4 border-background" />
+                  <div className="absolute left-6 top-1 w-5 h-5 rounded-full gradient-primary border-4 border-white/60 shadow-glow" />
 
                   <div className="bg-card p-6 rounded-2xl border border-border shadow-soft">
                     <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-3">
@@ -220,7 +218,14 @@ const About = () => {
                     key={industry.name}
                     className="flex items-center gap-3 p-4 rounded-xl bg-muted/50 border border-border"
                   >
-                    <industry.icon className="w-6 h-6 text-primary" />
+                    <div className="w-10 h-10 rounded-lg overflow-hidden bg-background border border-border/60 shadow-sm">
+                      <img
+                        src={industry.image}
+                        alt={`${industry.name} visual`}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
                     <span className="font-medium text-foreground text-sm">
                       {industry.name}
                     </span>

@@ -109,7 +109,7 @@ const Home = () => {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-rose-600 hover:bg-rose-700 text-white font-semibold px-7 shadow-lg shadow-rose-500/20"
+                  className="gradient-primary text-primary-foreground font-semibold px-7 shadow-glow hover:scale-105 transition-transform"
                 >
                   <Link to="/contact" className="group">
                     Get Started
@@ -179,9 +179,9 @@ const Home = () => {
       </section>
 
       {/* Market Research Highlight */}
-      <section className="py-8 md:py-10 relative overflow-hidden">
+      <section className="py-8 md:py-10 relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
         {/* Stock chart background pattern */}
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-15">
           <svg className="w-full h-full" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice">
             <defs>
               <linearGradient id="stockGradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -193,9 +193,9 @@ const Home = () => {
             <path d="M0,300 L50,280 L100,290 L150,250 L200,260 L250,220 L300,230 L350,180 L400,200 L450,150 L500,170 L550,120 L600,140 L650,100 L700,110 L750,80 L800,90" fill="none" stroke="url(#stockGradient)" strokeWidth="3" />
             <path d="M0,350 L50,340 L100,345 L150,320 L200,330 L250,300 L300,310 L350,280 L400,290 L450,250 L500,260 L550,230 L600,240 L650,200 L700,210 L750,180 L800,190" fill="none" stroke="url(#stockGradient)" strokeWidth="2" opacity="0.5" />
             {/* Grid lines */}
-            <line x1="0" y1="100" x2="800" y2="100" stroke="hsl(var(--primary))" strokeWidth="0.5" opacity="0.3" />
-            <line x1="0" y1="200" x2="800" y2="200" stroke="hsl(var(--primary))" strokeWidth="0.5" opacity="0.3" />
-            <line x1="0" y1="300" x2="800" y2="300" stroke="hsl(var(--primary))" strokeWidth="0.5" opacity="0.3" />
+            <line x1="0" y1="100" x2="800" y2="100" stroke="hsl(var(--primary))" strokeWidth="0.5" opacity="0.2" />
+            <line x1="0" y1="200" x2="800" y2="200" stroke="hsl(var(--primary))" strokeWidth="0.5" opacity="0.2" />
+            <line x1="0" y1="300" x2="800" y2="300" stroke="hsl(var(--primary))" strokeWidth="0.5" opacity="0.2" />
             {/* Vertical bars */}
             <rect x="100" y="280" width="20" height="120" fill="hsl(var(--primary))" opacity="0.2" />
             <rect x="200" y="250" width="20" height="150" fill="hsl(var(--primary))" opacity="0.2" />
@@ -206,22 +206,22 @@ const Home = () => {
             <rect x="700" y="100" width="20" height="300" fill="hsl(var(--secondary))" opacity="0.2" />
           </svg>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-secondary/5 to-muted/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/85 to-slate-950/90" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto rounded-2xl md:rounded-3xl bg-gradient-to-br from-white via-primary/5 to-secondary/5 border border-primary/20 shadow-card hover:shadow-glow transition-all duration-300 px-4 py-6 sm:px-6 sm:py-8 md:px-10 md:py-10 text-center space-y-3 md:space-y-4 animate-fade-in" style={{ animationDelay: "0.3s", opacity: 0 }}>
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-wide">
+          <div className="max-w-4xl mx-auto rounded-2xl md:rounded-3xl bg-gradient-to-br from-slate-900 via-slate-850 to-slate-900 border border-white/10 shadow-glow px-4 py-6 sm:px-6 sm:py-8 md:px-10 md:py-10 text-center space-y-3 md:space-y-4 animate-fade-in" style={{ animationDelay: "0.3s", opacity: 0 }}>
+            <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 text-white text-xs font-semibold tracking-wide">
               FREE MARKET SNAPSHOT
             </span>
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-white">
               Get a quick view of your market before you commit.
             </h2>
-            <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sm md:text-base text-slate-200 max-w-2xl mx-auto">
               Answer a few questions and receive a brief, AI‑assisted snapshot of your market — demand, competitors,
               and risks — tailored to your business.
             </p>
 
             <div className="pt-4">
-              <Button asChild size="lg" className="gradient-primary text-primary-foreground shadow-glow">
+              <Button asChild size="lg" className="gradient-primary text-primary-foreground shadow-glow hover:scale-105 transition-transform">
                 <Link to="/market-research">
                   Get Free Market Snapshot
                   <ArrowRight className="ml-2 h-5 w-5" />
