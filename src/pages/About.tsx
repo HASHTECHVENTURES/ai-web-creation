@@ -206,9 +206,31 @@ const About = () => {
       {/* Industry Experience */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          {/* Speaker Image */}
-          <div className="mb-12 flex justify-center">
-            <div className="relative animate-fade-in max-w-4xl w-full">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left side - Content */}
+            <div>
+              <SectionHeading
+                badge="Industries"
+                title="Industry Expertise"
+                subtitle="Deep domain knowledge across key sectors"
+              />
+              <div className="grid grid-cols-2 gap-4 mt-8">
+                {industries.map((industry) => (
+                  <div
+                    key={industry.name}
+                    className="flex items-center gap-3 p-4 rounded-xl bg-muted/50 border border-border"
+                  >
+                    <industry.icon className="w-6 h-6 text-primary" />
+                    <span className="font-medium text-foreground text-sm">
+                      {industry.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right side - Image */}
+            <div className="relative animate-fade-in">
               <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl">
                 <img
                   src={sanjivSpeaking}
@@ -217,28 +239,6 @@ const About = () => {
                   loading="lazy"
                 />
               </div>
-            </div>
-          </div>
-
-          <div>
-            <SectionHeading
-              badge="Industries"
-              title="Industry Expertise"
-              subtitle="Deep domain knowledge across key sectors"
-              centered
-            />
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 max-w-3xl mx-auto">
-              {industries.map((industry) => (
-                <div
-                  key={industry.name}
-                  className="flex items-center gap-3 p-4 rounded-xl bg-muted/50 border border-border"
-                >
-                  <industry.icon className="w-6 h-6 text-primary" />
-                  <span className="font-medium text-foreground text-sm">
-                    {industry.name}
-                  </span>
-                </div>
-              ))}
             </div>
           </div>
         </div>
