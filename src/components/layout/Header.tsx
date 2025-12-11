@@ -23,11 +23,11 @@ export const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity duration-300 group">
-            <div className="w-12 h-12 md:w-14 md:h-14 rounded-lg bg-primary flex items-center justify-center p-2 transition-transform duration-300 group-hover:scale-110">
+            <div className="w-12 h-12 md:w-14 md:h-14 rounded-lg bg-primary flex items-center justify-center p-1 transition-transform duration-300 group-hover:scale-110">
               <img 
                 src={companyLogo} 
                 alt="Markets-Simplified Logo" 
-                className="h-full w-auto"
+                className="h-full w-full object-contain"
               />
             </div>
             <span className="font-display font-bold text-lg md:text-xl text-foreground">
