@@ -26,7 +26,7 @@ export const Header = () => {
             <img
               src={companyLogo}
               alt="Markets-Simplified Logo"
-              className="h-12 w-auto md:h-14 transition-transform duration-300 group-hover:scale-105"
+              className="h-14 w-auto md:h-16 lg:h-18 transition-transform duration-300 group-hover:scale-105"
             />
             <span className="font-display font-bold text-lg md:text-xl text-foreground">
               Markets-<span className="text-primary">Simplified</span>
