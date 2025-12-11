@@ -221,7 +221,7 @@ const Services = () => {
           {/* Infographic Timeline */}
           <div className="mt-10 md:mt-16">
             {/* Steps */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 items-stretch">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-4 md:gap-2 items-stretch">
               {[
                 { 
                   title: "Discovery", 
@@ -251,34 +251,48 @@ const Services = () => {
                   gradient: "from-green-500 to-emerald-500",
                   bgGradient: "from-green-50 to-emerald-50",
                 },
-              ].map((item, idx) => {
+              ].map((item, idx, arr) => {
                 const IconComponent = item.icon;
                 return (
-                  <div 
-                    key={item.title} 
-                    className="flex flex-col h-full animate-fade-in"
-                    style={{ animationDelay: `${idx * 0.1}s`, opacity: 0 }}
-                  >
-                    {/* Step Card */}
-                    <div className="relative group flex flex-col h-full">
-                      {/* Icon */}
-                      <div className="flex justify-center mb-4 md:mb-6">
-                        <div className={`w-16 h-16 md:w-20 md:h-20 rounded-xl md:rounded-2xl bg-gradient-to-br ${item.gradient} shadow-lg flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
-                          <IconComponent className="w-8 h-8 md:w-10 md:h-10 text-white transition-transform duration-300 group-hover:scale-110" />
+                  <>
+                    <div 
+                      key={item.title} 
+                      className="flex flex-col h-full animate-fade-in lg:col-span-1"
+                      style={{ animationDelay: `${idx * 0.1}s`, opacity: 0 }}
+                    >
+                      {/* Step Card */}
+                      <div className="relative group flex flex-col h-full">
+                        {/* Icon */}
+                        <div className="flex justify-center mb-4 md:mb-6">
+                          <div className={`w-16 h-16 md:w-20 md:h-20 rounded-xl md:rounded-2xl bg-gradient-to-br ${item.gradient} shadow-lg flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
+                            <IconComponent className="w-8 h-8 md:w-10 md:h-10 text-white transition-transform duration-300 group-hover:scale-110" />
+                          </div>
+                        </div>
+
+                        {/* Content Card */}
+                        <div className={`bg-gradient-to-br ${item.bgGradient} rounded-xl md:rounded-2xl p-5 md:p-6 border-2 border-transparent group-hover:border-primary/30 group-hover:-translate-y-1 transition-all duration-300 shadow-card hover:shadow-glow flex-1 flex flex-col`}>
+                          <h3 className="font-display text-lg md:text-xl font-bold text-foreground mb-2 md:mb-3 text-center group-hover:text-primary transition-colors duration-300">
+                            {item.title}
+                          </h3>
+                          <p className="text-muted-foreground text-xs md:text-sm text-center leading-relaxed flex-grow">
+                            {item.desc}
+                          </p>
                         </div>
                       </div>
-
-                      {/* Content Card */}
-                      <div className={`bg-gradient-to-br ${item.bgGradient} rounded-xl md:rounded-2xl p-5 md:p-6 border-2 border-transparent group-hover:border-primary/30 group-hover:-translate-y-1 transition-all duration-300 shadow-card hover:shadow-glow flex-1 flex flex-col`}>
-                        <h3 className="font-display text-lg md:text-xl font-bold text-foreground mb-2 md:mb-3 text-center group-hover:text-primary transition-colors duration-300">
-                          {item.title}
-                        </h3>
-                        <p className="text-muted-foreground text-xs md:text-sm text-center leading-relaxed flex-grow">
-                          {item.desc}
-                        </p>
-                      </div>
                     </div>
-                  </div>
+                    
+                    {/* Arrow between steps */}
+                    {idx < arr.length - 1 && (
+                      <div 
+                        key={`arrow-${idx}`}
+                        className="hidden lg:flex items-center justify-center lg:col-span-1"
+                      >
+                        <div className="flex items-center justify-center w-full h-full pt-8">
+                          <ArrowRight className="w-8 h-8 text-primary/50 animate-pulse" />
+                        </div>
+                      </div>
+                    )}
+                  </>
                 );
               })}
             </div>
