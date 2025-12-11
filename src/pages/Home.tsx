@@ -82,7 +82,7 @@ const Home = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center gradient-hero overflow-hidden">
+      <section className="relative min-h-[70vh] flex items-center gradient-hero overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-primary blur-3xl" />
@@ -143,7 +143,7 @@ const Home = () => {
 
 
       {/* Services Section */}
-      <section className="py-12 md:py-16 lg:py-20 bg-muted/50">
+      <section className="py-8 md:py-10 lg:py-12 bg-muted/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Services"
@@ -181,9 +181,36 @@ const Home = () => {
       </section>
 
       {/* Market Research Highlight */}
-      <section className="py-12 md:py-16 bg-gradient-to-r from-primary/5 via-secondary/5 to-muted/80">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto rounded-2xl md:rounded-3xl bg-gradient-to-br from-white via-primary/5 to-secondary/5 border border-primary/20 shadow-card hover:shadow-glow transition-all duration-300 px-4 py-8 sm:px-6 sm:py-10 md:px-10 md:py-12 text-center space-y-4 md:space-y-6 animate-fade-in" style={{ animationDelay: "0.3s", opacity: 0 }}>
+      <section className="py-8 md:py-10 relative overflow-hidden">
+        {/* Stock chart background pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <svg className="w-full h-full" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="stockGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="hsl(var(--primary))" />
+                <stop offset="100%" stopColor="hsl(var(--secondary))" />
+              </linearGradient>
+            </defs>
+            {/* Stock chart lines */}
+            <path d="M0,300 L50,280 L100,290 L150,250 L200,260 L250,220 L300,230 L350,180 L400,200 L450,150 L500,170 L550,120 L600,140 L650,100 L700,110 L750,80 L800,90" fill="none" stroke="url(#stockGradient)" strokeWidth="3" />
+            <path d="M0,350 L50,340 L100,345 L150,320 L200,330 L250,300 L300,310 L350,280 L400,290 L450,250 L500,260 L550,230 L600,240 L650,200 L700,210 L750,180 L800,190" fill="none" stroke="url(#stockGradient)" strokeWidth="2" opacity="0.5" />
+            {/* Grid lines */}
+            <line x1="0" y1="100" x2="800" y2="100" stroke="hsl(var(--primary))" strokeWidth="0.5" opacity="0.3" />
+            <line x1="0" y1="200" x2="800" y2="200" stroke="hsl(var(--primary))" strokeWidth="0.5" opacity="0.3" />
+            <line x1="0" y1="300" x2="800" y2="300" stroke="hsl(var(--primary))" strokeWidth="0.5" opacity="0.3" />
+            {/* Vertical bars */}
+            <rect x="100" y="280" width="20" height="120" fill="hsl(var(--primary))" opacity="0.2" />
+            <rect x="200" y="250" width="20" height="150" fill="hsl(var(--primary))" opacity="0.2" />
+            <rect x="300" y="220" width="20" height="180" fill="hsl(var(--primary))" opacity="0.2" />
+            <rect x="400" y="180" width="20" height="220" fill="hsl(var(--secondary))" opacity="0.2" />
+            <rect x="500" y="150" width="20" height="250" fill="hsl(var(--secondary))" opacity="0.2" />
+            <rect x="600" y="120" width="20" height="280" fill="hsl(var(--secondary))" opacity="0.2" />
+            <rect x="700" y="100" width="20" height="300" fill="hsl(var(--secondary))" opacity="0.2" />
+          </svg>
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-secondary/5 to-muted/80" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-4xl mx-auto rounded-2xl md:rounded-3xl bg-gradient-to-br from-white via-primary/5 to-secondary/5 border border-primary/20 shadow-card hover:shadow-glow transition-all duration-300 px-4 py-6 sm:px-6 sm:py-8 md:px-10 md:py-10 text-center space-y-3 md:space-y-4 animate-fade-in" style={{ animationDelay: "0.3s", opacity: 0 }}>
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-wide">
               FREE MARKET SNAPSHOT
             </span>
@@ -208,7 +235,7 @@ const Home = () => {
       </section>
 
       {/* Clients Section */}
-      <section className="py-12 md:py-16 lg:py-20 bg-background">
+      <section className="py-8 md:py-10 lg:py-12 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Clients"
@@ -232,7 +259,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 md:py-16 lg:py-20 gradient-hero">
+      <section className="py-8 md:py-10 lg:py-12 gradient-hero">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <SectionHeading
             title="Ready to Simplify Your Strategy?"
