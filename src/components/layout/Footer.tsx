@@ -25,13 +25,11 @@ export const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1 animate-fade-in">
             <Link to="/" className="flex items-center gap-2 mb-4 hover:opacity-80 transition-opacity duration-300 group">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center p-1.5 transition-transform duration-300 group-hover:scale-110">
-                <img 
-                  src={companyLogo} 
-                  alt="Markets-Simplified Logo" 
-                  className="h-full w-auto"
-                />
-              </div>
+              <img 
+                src={companyLogo} 
+                alt="Markets-Simplified Logo" 
+                className="h-12 w-auto md:h-14 transition-transform duration-300 group-hover:scale-105"
+              />
               <span className="font-display font-bold text-base md:text-lg">
                 Markets-<span className="text-secondary">Simplified</span>
               </span>
