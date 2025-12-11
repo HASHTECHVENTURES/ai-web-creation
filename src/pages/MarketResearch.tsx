@@ -38,10 +38,10 @@ const MarketResearch = () => {
   }, [isLoading]);
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.companyName || !formData.city || !formData.lineOfBusiness) {
+    if (!formData.companyName || !formData.city || !formData.phone || !formData.email || !formData.lineOfBusiness) {
       toast({
         title: "Missing Information",
-        description: "Please fill in company name, city, and line of business.",
+        description: "Please fill in all required fields.",
         variant: "destructive"
       });
       return;
@@ -57,10 +57,11 @@ const MarketResearch = () => {
       });
       if (error) throw error;
 
-      // Navigate to results page with report data
+      // Navigate to results page with report data and company info
       navigate("/market-research/result", {
         state: {
-          report: data.report
+          report: data.report,
+          companyName: formData.companyName
         }
       });
     } catch (error) {
@@ -129,17 +130,17 @@ const MarketResearch = () => {
                   <div className="space-y-2">
                     <Label htmlFor="phone" className="flex items-center gap-2 text-foreground">
                       <Phone size={16} className="text-primary" />
-                      Phone
+                      Phone *
                     </Label>
-                    <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder="Enter phone number" className="bg-background text-foreground border-border" />
+                    <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder="Enter phone number" className="bg-background text-foreground border-border" required />
                   </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="email" className="flex items-center gap-2 text-foreground">
                       <Mail size={16} className="text-primary" />
-                      Email
+                      Email *
                     </Label>
-                    <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="Enter email address" className="bg-background text-foreground border-border" />
+                    <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="Enter email address" className="bg-background text-foreground border-border" required />
                   </div>
                 </div>
 
@@ -157,7 +158,7 @@ const MarketResearch = () => {
                       Generating Report...
                     </> : <>
                       <FileText className="mr-2 h-4 w-4" />
-                      Generate Market Research Report
+                      Get Market Report
                     </>}
                 </Button>
               </form>
