@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import sanjivBhaskar from "@/assets/sanjiv-bhaskar.png";
-import sanjivSpeaking from "@/assets/sanjiv-speaking.png";
+import industryNetwork from "@/assets/industry-network.png";
 import industryBuildingTechnologies from "@/assets/industry-building-technologies.png";
 import industryIndustrialAutomation from "@/assets/industry-industrial-automation.jpeg";
 import industryEnvironmentalSolutions from "@/assets/industry-environmental-solutions.jpg";
@@ -238,8 +238,8 @@ const About = () => {
             <div className="relative animate-fade-in">
               <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src={sanjivSpeaking}
-                  alt="Sanjiv Bhaskar speaking at conference"
+                  src={industryNetwork}
+                  alt="Industry expertise network"
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
