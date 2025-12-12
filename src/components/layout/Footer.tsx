@@ -27,11 +27,11 @@ export const Footer = () => {
             <Link to="/" className="flex items-center gap-1 mb-4 hover:opacity-80 transition-opacity duration-300 group">
               <img 
                 src={companyLogo} 
-                alt="Markets-Simplified Logo" 
+                alt="SanMi Strategy Advisor Logo" 
                 className="h-12 w-auto md:h-14 transition-transform duration-300 group-hover:scale-105"
               />
               <span className="font-display font-bold text-base md:text-lg text-slate-900">
-                Markets-<span className="text-primary">Simplified</span>
+                SanMi <span className="text-primary">Strategy Advisor</span>
               </span>
             </Link>
             <p className="text-slate-600 text-xs leading-relaxed mb-4">
@@ -48,7 +48,7 @@ export const Footer = () => {
                 <Linkedin size={16} />
               </a>
               <a
-                href="mailto:contact@markets-simplified.com"
+                href="mailto:contact@sanmistrategyadvisor.com"
                 className="w-9 h-9 rounded-lg bg-slate-200 text-slate-800 flex items-center justify-center hover:bg-slate-300 hover:scale-110 transition-all duration-300"
               >
                 <Mail size={16} />
@@ -97,7 +97,7 @@ export const Footer = () => {
               <li className="flex items-start gap-2.5 group">
                 <Mail size={16} className="text-primary mt-0.5 flex-shrink-0 transition-transform duration-300 group-hover:scale-110" />
                 <span className="text-slate-600 text-xs group-hover:text-primary transition-colors duration-300">
-                  contact@markets-simplified.com
+                  contact@sanmistrategyadvisor.com
                 </span>
               </li>
               <li className="flex items-start gap-2.5 group">
@@ -114,7 +114,7 @@ export const Footer = () => {
         <div className="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-slate-200 animate-fade-in" style={{ animationDelay: "0.4s", opacity: 0 }}>
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3 md:gap-4">
             <p className="text-slate-500 text-xs md:text-sm text-center sm:text-left">
-              © {new Date().getFullYear()} Markets-Simplified. All rights reserved.
+              © {new Date().getFullYear()} SanMi Strategy Advisor. All rights reserved.
             </p>
             <div className="flex gap-4 md:gap-6">
               <Link to="/contact" className="text-slate-500 hover:text-slate-800 text-xs md:text-sm transition-colors duration-300 hover:underline">

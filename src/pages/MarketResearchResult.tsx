@@ -65,7 +65,7 @@ const MarketResearchResult = () => {
     pdf.setFontSize(20);
     pdf.setFont("helvetica", "bold");
     pdf.setTextColor(31, 41, 55);
-    pdf.text("Markets-Simplified", pageWidth / 2, yPosition, { align: "center" });
+    pdf.text("SanMi Strategy Advisor", pageWidth / 2, yPosition, { align: "center" });
     yPosition += 10;
 
     // Add report title
@@ -152,7 +152,7 @@ const MarketResearchResult = () => {
     pdf.setFontSize(9);
     pdf.setFont("helvetica", "normal");
     pdf.setTextColor(60, 60, 60);
-    const disclaimer = "This report is generated using artificial intelligence and should be used for informational purposes only. The analysis and insights provided are based on publicly available data and AI algorithms. Markets-Simplified recommends validating this information with additional research and professional consultation before making business decisions.";
+    const disclaimer = "This report is generated using artificial intelligence and should be used for informational purposes only. The analysis and insights provided are based on publicly available data and AI algorithms. SanMi Strategy Advisor recommends validating this information with additional research and professional consultation before making business decisions.";
     const disclaimerLines = pdf.splitTextToSize(disclaimer, contentWidth - 10);
     disclaimerLines.forEach((line: string) => {
       pdf.text(line, margin + 5, yPosition);
@@ -170,7 +170,7 @@ const MarketResearchResult = () => {
     pdf.setFontSize(8);
     pdf.setFont("helvetica", "normal");
     pdf.setTextColor(156, 163, 175);
-    pdf.text("© Markets-Simplified | www.markets-simplified.com", pageWidth / 2, pageHeight - 10, { align: "center" });
+    pdf.text("© SanMi Strategy Advisor | www.sanmistrategyadvisor.com", pageWidth / 2, pageHeight - 10, { align: "center" });
   };
 
   return (
@@ -234,6 +234,18 @@ const MarketResearchResult = () => {
                   {report}
                 </ReactMarkdown>
               </article>
+            </div>
+
+            {/* Bottom Download Button */}
+            <div className="mt-8 flex justify-center">
+              <Button
+                onClick={handleDownloadPDF}
+                className="gradient-primary text-primary-foreground"
+                size="lg"
+              >
+                <Download className="mr-2 h-4 w-4" />
+                Download PDF Report
+              </Button>
             </div>
           </div>
         </div>
