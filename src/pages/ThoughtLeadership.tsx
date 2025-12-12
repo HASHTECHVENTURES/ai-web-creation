@@ -151,6 +151,30 @@ const ThoughtLeadership = () => {
         </div>
       </section>
 
+      {/* CTA Section */}
+      <section className="py-12 md:py-16 lg:py-20 gradient-hero">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <SectionHeading
+            title="Want to Discuss These Ideas?"
+            subtitle="Let's explore how these frameworks can apply to your business"
+            centered
+            light
+          />
+          <div className="mt-6 md:mt-8 animate-fade-in" style={{ animationDelay: "0.3s", opacity: 0 }}>
+            <Button
+              asChild
+              size="lg"
+              className="gradient-accent text-secondary-foreground font-semibold hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg"
+            >
+              <Link to="/contact" className="group">
+                Get in Touch
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Speaking & Workshops */}
       <section className="py-12 md:py-16 lg:py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -184,30 +208,6 @@ const ThoughtLeadership = () => {
                 </Link>
               </Button>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-12 md:py-16 lg:py-20 gradient-hero">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <SectionHeading
-            title="Want to Discuss These Ideas?"
-            subtitle="Let's explore how these frameworks can apply to your business"
-            centered
-            light
-          />
-          <div className="mt-6 md:mt-8 animate-fade-in" style={{ animationDelay: "0.3s", opacity: 0 }}>
-            <Button
-              asChild
-              size="lg"
-              className="gradient-accent text-secondary-foreground font-semibold hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg"
-            >
-              <Link to="/contact" className="group">
-                Get in Touch
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
           </div>
         </div>
       </section>
