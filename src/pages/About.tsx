@@ -15,9 +15,9 @@ const timeline = [
   {
     period: "2025 – Present",
     role: "Independent Consultant",
-    company: "Markets-Simplified",
+    company: "SanMi Strategy Advisor",
     description:
-      "Founded Markets-Simplified to provide boutique strategic consulting and market intelligence services to global clients.",
+      "Founded SanMi Strategy Advisor to provide boutique strategic consulting and market intelligence services to global clients.",
   },
   {
     period: "2013 – 2024",
