@@ -155,19 +155,11 @@ const ThoughtLeadership = () => {
       <section className="py-12 md:py-16 lg:py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div className="relative animate-fade-in space-y-4" style={{ animationDelay: "0.1s", opacity: 0 }}>
+            <div className="relative animate-fade-in" style={{ animationDelay: "0.1s", opacity: 0 }}>
               <div className="aspect-video rounded-2xl md:rounded-3xl overflow-hidden shadow-card hover:shadow-glow transition-shadow duration-300">
                 <img
                   src={sanjivSpeakingStage}
                   alt="Sanjiv Bhaskar speaking at conference"
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
-              <div className="aspect-video rounded-2xl md:rounded-3xl overflow-hidden shadow-card hover:shadow-glow transition-shadow duration-300">
-                <img
-                  src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop"
-                  alt="Conference speaking and workshops"
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   loading="lazy"
                 />
