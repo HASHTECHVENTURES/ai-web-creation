@@ -9,7 +9,7 @@ import industryBuildingTechnologies from "@/assets/industry-building-technologie
 import industryIndustrialAutomation from "@/assets/industry-industrial-automation.jpeg";
 import industryEnvironmentalSolutions from "@/assets/industry-environmental-solutions.jpg";
 import industryWeldingIndustries from "@/assets/industry-welding-industries.jpg";
-import industryPpe from "@/assets/industry-ppe.jpg";
+import industryPpe from "@/assets/industry-ppe-new.png";
 
 const timeline = [
   {
